@@ -66,11 +66,13 @@ jobs:
                   asar pack webapp/ webapp.asar
                   echo "webapp.asar created successfully"
 
-            - name: Upload webapp.asar artifact
+            - name: Upload webapp artifacts
               uses: actions/upload-artifact@v4
               with:
                   name: webapp-asar-${{ steps.version.outputs.version }}
-                  path: webapp.asar
+                  path: |
+                      webapp/
+                      webapp.asar
                   retention-days: 30
 
     trigger-desktop-build:
