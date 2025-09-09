@@ -88,7 +88,7 @@ jobs:
                   inputs: |
                       {
                         "webapp-version": "${{ needs.build-webapp.outputs.webapp-version }}",
-                        "webapp-artifact": "${{ needs.build-webapp.outputs.webapp-artifact }}",
+                        "webapp-artifact": "webapp-asar-${{ needs.build-webapp.outputs.webapp-version }}",
                         "release-notes": "${{ github.event.release.body || 'Automated release from Polarius-web' }}",
                         "release-title": "${{ github.event.release.name || 'Polarius Desktop' }}"
                       }
