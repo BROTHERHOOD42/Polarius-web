@@ -87,8 +87,8 @@ jobs:
                   token: ${{ secrets.DESKTOP_TRIGGER_TOKEN }}
                   inputs: |
                       {
-                        "webapp-version": "${{ needs.build-webapp.outputs.webapp-version }}",
-                        "webapp-artifact": "webapp-asar-${{ needs.build-webapp.outputs.webapp-version }}",
+                        "webapp-version": "${{ github.ref_name }}",
+                        "webapp-artifact": "webapp-asar-${{ github.ref_name }}",
                         "release-notes": "${{ github.event.release.body || 'Automated release from Polarius-web' }}",
                         "release-title": "${{ github.event.release.name || 'Polarius Desktop' }}"
                       }
