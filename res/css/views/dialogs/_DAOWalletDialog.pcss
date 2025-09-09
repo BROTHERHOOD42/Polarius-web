@@ -1,0 +1,33 @@
+/*
+Copyright 2024 New Vector Ltd.
+
+SPDX-License-Identifier: AGPL-3.0-only OR GPL-3.0-only OR LicenseRef-Element-Commercial
+Please see LICENSE files in the repository root for full details.
+*/
+
+.mx_DAOWalletDialog {
+    width: 90vw;
+    height: 90vh;
+    max-width: 1200px;
+    max-height: 800px;
+
+    .mx_DAOWalletDialog_title {
+        margin: 0;
+    }
+
+    .mx_DAOWalletDialog_content {
+        padding: 0;
+        
+        /* Remove the default close button from MyWalletPanel since BaseDialog has its own */
+        .mx_MyWalletPanel_closeButton {
+            display: none;
+        }
+
+        /* Adjust MyWalletPanel to fit within dialog */
+        .mx_MyWalletPanel {
+            border: none;
+            border-radius: 0;
+            box-shadow: none;
+        }
+    }
+}
