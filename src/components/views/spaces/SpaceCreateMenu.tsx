@@ -136,7 +136,7 @@ const createSubspaces = async (client: MatrixClient, parentRoomId: string, daoNa
                     events_default: 0,
                     invite: 0,
                 },
-                topic: `Designated Contribution Activities space for ${daoName} DAO`,
+                topic: `Development through Contribution Activities (DCA) space for ${daoName} DAO`,
             },
             roomType: RoomType.Space,
             historyVisibility: HistoryVisibility.Invited,

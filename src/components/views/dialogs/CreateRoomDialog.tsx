@@ -176,8 +176,8 @@ export default class CreateRoomDialog extends React.Component<IProps, IState> {
                 createOpts.name = `Discussion: ${this.state.name}`;
             }
         } else if (this.isDCASpace()) {
-            // Add DCA prefix for DCA space
-            createOpts.name = `DCA: ${this.state.name}`;
+            // No prefix for CCG space
+            createOpts.name = this.state.name;
         } else {
             createOpts.name = this.state.name;
         }
@@ -641,7 +641,7 @@ export default class CreateRoomDialog extends React.Component<IProps, IState> {
         if (isVideoRoom) {
             title = _t("create_room|title_video_room");
         } else if (this.isDCASpace()) {
-            title = "Create a DCA room (Designated Contribution Activities)";
+            title = "Create a DCA room";
         } else if (this.isGOVSpace()) {
             title = "New agenda";
         } else if (this.props.parentSpace || this.state.joinRule === JoinRule.Knock) {
@@ -694,7 +694,7 @@ export default class CreateRoomDialog extends React.Component<IProps, IState> {
                         <Field
                             ref={this.nameField}
                             label={
-                                this.isDCASpace() ? "Contribution Activity Name" : 
+                                this.isDCASpace() ? "common goal to develop" : 
                                 this.isGOVSpace() ? 
                                     (this.state.agendaType === 'proposal' ? "Proposal Name" : "Discussion Name") : 
                                 _t("common|name")
@@ -706,7 +706,7 @@ export default class CreateRoomDialog extends React.Component<IProps, IState> {
                         />
                         <Field
                             label={
-                                this.isDCASpace() ? "Verification Method" : 
+                                this.isDCASpace() ? "Description of the contribution toward a common goal" : 
                                 this.isGOVSpace() ? 
                                     (this.state.agendaType === 'proposal' ? "Proposal Description" : "Discussion Description") : 
                                 _t("create_room|topic_label")
@@ -881,6 +881,7 @@ export default class CreateRoomDialog extends React.Component<IProps, IState> {
                                 value={this.state.contributionValue}
                                 className="mx_CreateRoomDialog_contributionValue"
                                 placeholder="Enter value"
+                                type="number"
                             />
                         )}
 

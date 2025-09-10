@@ -317,7 +317,7 @@ const SpaceLanding: React.FC<{ space: Room }> = ({ space }) => {
                             })}
                         >
                             <div className="mx_SpaceRoomView_landing_daoButton_title">DCA</div>
-                            <div className="mx_SpaceRoomView_landing_daoButton_description">Designated Contribution Activities</div>
+                            <div className="mx_SpaceRoomView_landing_daoButton_description">Development through Contribution Activities</div>
                         </AccessibleButton>
                     )}
                 </div>

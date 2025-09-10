@@ -110,9 +110,9 @@ const Tile: React.FC<ITileProps> = ({
     });
     const joinedRoomName = useTypedEventEmitterState(joinedRoom, RoomEvent.Name, (room) => room?.name);
     
-    // Custom display name for DCA space
-    const isDCASpace = joinedRoom && joinedRoom.name === "DCA";
-    const name = isDCASpace ? "DCA" : (
+    // Custom display name for CCG space
+    const isCCGSpace = joinedRoom && joinedRoom.name === "DCA";
+    const name = isCCGSpace ? "CCG" : (
         joinedRoomName ||
         room.name ||
         room.canonical_alias ||
@@ -533,7 +533,7 @@ export const HierarchyLevel: React.FC<IHierarchyLevelProps> = ({
         [[] as HierarchyRoom[], [] as HierarchyRoom[]],
     );
 
-    // Sort subspaces to put GOV and DCA at the top
+    // Sort subspaces to put GOV and CCG at the top
     subspaces.sort((a, b) => {
         const aIsDAO = a.name === "GOV" || a.name === "DCA";
         const bIsDAO = b.name === "GOV" || b.name === "DCA";
@@ -541,7 +541,7 @@ export const HierarchyLevel: React.FC<IHierarchyLevelProps> = ({
         if (aIsDAO && !bIsDAO) return -1;
         if (!aIsDAO && bIsDAO) return 1;
         
-        // Within GOV/DCA, maintain order: GOV first, then DCA
+        // Within GOV/CCG, maintain order: GOV first, then CCG
         if (aIsDAO && bIsDAO) {
             if (a.name === "GOV" && b.name === "DCA") return -1;
             if (a.name === "DCA" && b.name === "GOV") return 1;
@@ -552,14 +552,14 @@ export const HierarchyLevel: React.FC<IHierarchyLevelProps> = ({
 
     const newParents = new Set(parents).add(root.room_id);
     
-    // Separate GOV/DCA spaces from other subspaces and rooms
+    // Separate GOV/CCG spaces from other subspaces and rooms
     const filteredSubspaces = subspaces.filter((room) => !newParents.has(room.room_id));
     const govDcaSpaces = filteredSubspaces.filter(space => space.name === "GOV" || space.name === "DCA");
     const otherSubspaces = filteredSubspaces.filter(space => space.name !== "GOV" && space.name !== "DCA");
     const otherRooms = uniqBy(childRooms, "room_id");
     return (
         <React.Fragment>
-            {/* Render GOV/DCA spaces first */}
+            {/* Render GOV/CCG spaces first */}
             {govDcaSpaces.map((space) => (
                 <Tile
                     key={space.room_id}
