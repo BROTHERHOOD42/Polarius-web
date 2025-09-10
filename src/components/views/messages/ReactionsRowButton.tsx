@@ -102,7 +102,6 @@ export default class ReactionsRowButton extends React.PureComponent<IProps> {
         const classes = classNames({
             mx_ReactionsRowButton: true,
             mx_ReactionsRowButton_selected: !!myReactionEvent,
-            mx_ReactionsRowButton_noCount: isVerificationInDCA, // DCA 룸 ✅ 반응용 스타일
         });
 
         const room = this.context.getRoom(mxEvent.getRoomId());
@@ -165,12 +164,9 @@ export default class ReactionsRowButton extends React.PureComponent<IProps> {
                     title={isVerificationInDCA ? "Verification cannot be removed" : undefined}
                 >
                     {reactionContent}
-                    {/* DCA 룸의 ✅ 반응은 카운트 숨김 */}
-                    {!isVerificationInDCA && (
-                        <span className="mx_ReactionsRowButton_count" aria-hidden="true">
-                            {count}
-                        </span>
-                    )}
+                    <span className="mx_ReactionsRowButton_count" aria-hidden="true">
+                        {count}
+                    </span>
                 </AccessibleButton>
             </ReactionsRowButtonTooltip>
         );

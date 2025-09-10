@@ -263,21 +263,17 @@ const ReactButton: React.FC<IReactButtonProps> = ({ mxEvent, reactions, onFocusC
     const currentUserId = MatrixClientPeg.safeGet().getSafeUserId();
     const isDCA = room ? isDCARoom(room) : false;
     
-    // Check if message is already verified (has ✅ reaction)
-    const isAlreadyVerified = isDCA && reactions?.getAnnotationsBySender() ? 
-        Object.values(reactions.getAnnotationsBySender()).some(userReactions => 
-            Array.from(userReactions).some(reaction => 
-                !reaction.isRedacted() && reaction.getRelation()?.key === "✅"
-            )
-        ) : false;
+    // Check if current user has already verified this message
+    const hasUserAlreadyVerified = isDCA && reactions?.getAnnotationsBySender() ? 
+        reactions.getAnnotationsBySender()[currentUserId]?.has("✅") : false;
     
-    const canReact = !isDCA || (hasVerificationAuthority(room!, currentUserId) && !isAlreadyVerified);
+    const canReact = !isDCA || (hasVerificationAuthority(room!, currentUserId) && !hasUserAlreadyVerified);
     
     // Debug logging
     if (room && isDCA) {
         console.log("DCA Room detected:", room.name);
         console.log("User ID:", currentUserId);
-        console.log("Already verified:", isAlreadyVerified);
+        console.log("User already verified:", hasUserAlreadyVerified);
         console.log("Can react:", canReact);
     }
 
@@ -360,8 +356,8 @@ const ReactButton: React.FC<IReactButtonProps> = ({ mxEvent, reactions, onFocusC
                 className={`mx_MessageActionBar_iconButton ${!canReact ? 'mx_MessageActionBar_iconButton_disabled' : ''}`}
                 title={
                     !canReact 
-                        ? isAlreadyVerified
-                            ? "Already verified"
+                        ? hasUserAlreadyVerified
+                            ? "You have already verified this message"
                             : "Verification authority required"
                         : isDCA 
                             ? "Verification" 

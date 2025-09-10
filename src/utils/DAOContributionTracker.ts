@@ -19,7 +19,7 @@ export class DAOContributionTracker {
     private recentContributions: Map<string, number> = new Map(); // userId+daoId -> timestamp
     private readonly CONTRIBUTION_COOLDOWN = 0; // 쿨다운 없음
     private isInitialized = false;
-    private processedVerifications: Set<string> = new Set(); // 중복 처리 방지: eventId+verifierId
+    private processedVerifications: Set<string> = new Set(); // 중복 처리 방지: eventId+verifierId (자신이 검증한 것만)
 
     static getInstance(): DAOContributionTracker {
         if (!DAOContributionTracker.instance) {
