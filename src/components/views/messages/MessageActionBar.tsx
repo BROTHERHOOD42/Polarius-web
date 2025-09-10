@@ -280,11 +280,76 @@ const ReactButton: React.FC<IReactButtonProps> = ({ mxEvent, reactions, onFocusC
     let contextMenu: JSX.Element | undefined;
     if (menuDisplayed && button.current && canReact) {
         const buttonRect = button.current.getBoundingClientRect();
-        contextMenu = (
-            <ContextMenu {...aboveLeftOf(buttonRect)} onFinished={closeMenu} managed={false}>
-                <ReactionPicker mxEvent={mxEvent} reactions={reactions} onFinished={closeMenu} />
-            </ContextMenu>
-        );
+        
+        // DCA 룸에서는 Kudos 이모지 선택 메뉴 표시
+        if (isDCA) {
+            const kudosEmojis = ["✅", "👍", "🎉", "💯", "🔥", "⭐", "🚀"];
+            contextMenu = (
+                <ContextMenu {...aboveLeftOf(buttonRect)} onFinished={closeMenu} managed={false}>
+                    <div className="mx_ReactionPicker">
+                        <div className="mx_ReactionPicker_title">Choose Kudos Emoji</div>
+                        <div className="mx_ReactionPicker_emojiList">
+                            {kudosEmojis.map((emoji) => (
+                                <button
+                                    key={emoji}
+                                    className="mx_ReactionPicker_emoji"
+                                    onClick={() => {
+                                        const client = MatrixClientPeg.safeGet();
+                                        const eventId = mxEvent.getId();
+                                        const roomId = mxEvent.getRoomId();
+                                        
+                                        if (!eventId || !roomId) {
+                                            console.error("Missing event ID or room ID for verification");
+                                            return;
+                                        }
+                                        
+                                        console.log("🔥 DCA KUDOS CLICKED! Starting immediate transaction process...");
+                                        
+                                        // 즉시 트랜잭션 처리 시작
+                                        const tracker = DAOContributionTracker.getInstance();
+                                        tracker.initialize();
+                                        const verifierUserId = client.getSafeUserId();
+                                        
+                                        // 바로 검증 이벤트 처리 (리액션 전송과 동시에)
+                                        tracker.processVerificationForEvent(mxEvent, verifierUserId, roomId).catch(error => {
+                                            console.error("💥 Failed to process verification immediately:", error);
+                                        });
+                                        
+                                        const verificationData = {
+                                            "m.relates_to": {
+                                                "rel_type": RelationType.Annotation as const,
+                                                "event_id": eventId,
+                                                "key": emoji,
+                                            },
+                                            "verification": true,
+                                            "issued_at": Date.now(),
+                                            "issuer": client.getSafeUserId(),
+                                        };
+                                        
+                                        client.sendEvent(roomId, EventType.Reaction, verificationData).then(() => {
+                                            console.log("✅ Kudos reaction sent successfully");
+                                        }).catch(err => {
+                                            console.error("Failed to send kudos:", err);
+                                        });
+                                        
+                                        closeMenu();
+                                    }}
+                                >
+                                    {emoji}
+                                </button>
+                            ))}
+                        </div>
+                    </div>
+                </ContextMenu>
+            );
+        } else {
+            // 일반 룸에서는 기존 ReactionPicker 사용
+            contextMenu = (
+                <ContextMenu {...aboveLeftOf(buttonRect)} onFinished={closeMenu} managed={false}>
+                    <ReactionPicker mxEvent={mxEvent} reactions={reactions} onFinished={closeMenu} />
+                </ContextMenu>
+            );
+        }
     }
 
     const onClick = useCallback(
@@ -298,56 +363,13 @@ const ReactButton: React.FC<IReactButtonProps> = ({ mxEvent, reactions, onFocusC
                 return;
             }
 
-            // DCA 룸에서는 바로 ✅ 리액션 추가 (기여증명 발행)
-            if (isDCA) {
-                const client = MatrixClientPeg.safeGet();
-                const eventId = mxEvent.getId();
-                const roomId = mxEvent.getRoomId();
-                
-                if (!eventId || !roomId) {
-                    console.error("Missing event ID or room ID for verification");
-                    return;
-                }
-                
-                console.log("🔥 DCA VERIFICATION CLICKED! Starting immediate transaction process...");
-                
-                // 즉시 트랜잭션 처리 시작
-                const tracker = DAOContributionTracker.getInstance();
-                tracker.initialize(); // 확실히 초기화
-                const verifierUserId = client.getSafeUserId();
-                
-                // 바로 검증 이벤트 처리 (리액션 전송과 동시에)
-                tracker.processVerificationForEvent(mxEvent, verifierUserId, roomId).catch(error => {
-                    console.error("💥 Failed to process verification immediately:", error);
-                });
-                
-                const reactionKey = "✅";
-                const verificationData = {
-                    "m.relates_to": {
-                        "rel_type": RelationType.Annotation as const,
-                        "event_id": eventId,
-                        "key": reactionKey,
-                    },
-                    "verification": true,
-                    "issued_at": Date.now(),
-                    "issuer": client.getSafeUserId(),
-                };
-                
-                client.sendEvent(roomId, EventType.Reaction, verificationData).then(() => {
-                    console.log("✅ Verification reaction sent successfully");
-                }).catch(err => {
-                    console.error("Failed to send verification:", err);
-                });
-                return;
-            }
-
             openMenu();
             // when the context menu is opened directly, e.g. via mouse click, the onFocus handler which tracks
             // the element that is currently focused is skipped. So we want to call onFocus manually to keep the
             // position in the page even when someone is clicking around.
             onFocus();
         },
-        [openMenu, onFocus, canReact, isDCA, mxEvent],
+        [openMenu, onFocus, canReact],
     );
 
     return (
