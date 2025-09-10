@@ -72,9 +72,9 @@ export default class ReactionsRowButton extends React.PureComponent<IProps> {
     public onClick = (): void => {
         const { mxEvent, myReactionEvent, content } = this.props;
         
-        // DCA 룸에서 ✅ 반응 취소 차단
-        if (content === "✅" && this.isDCARoom(mxEvent.getRoomId()!)) {
-            console.log("🚫 Verification reaction removal blocked in DCA room");
+        // DCA 룸에서 👍 반응 취소 차단
+        if (content === "👍" && this.isDCARoom(mxEvent.getRoomId()!)) {
+            console.log("🚫 Kudos reaction removal blocked in DCA room");
             return;
         }
         
@@ -95,8 +95,8 @@ export default class ReactionsRowButton extends React.PureComponent<IProps> {
     public render(): React.ReactNode {
         const { mxEvent, content, count, reactionEvents, myReactionEvent } = this.props;
 
-        // DCA 룸의 ✅ 반응은 클릭 비활성화
-        const isVerificationInDCA = content === "✅" && this.isDCARoom(mxEvent.getRoomId()!);
+        // DCA 룸의 👍 반응은 클릭 비활성화
+        const isVerificationInDCA = content === "👍" && this.isDCARoom(mxEvent.getRoomId()!);
         const isDisabled = this.props.disabled || isVerificationInDCA;
 
         const classes = classNames({
