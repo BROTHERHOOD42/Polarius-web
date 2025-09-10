@@ -63,12 +63,12 @@ function isDCARoom(room: Room): boolean {
     const currentState = room.currentState;
     const topicEvent = currentState.getStateEvents("m.room.topic", "");
     const topic = topicEvent?.getContent()?.topic || "";
-    return topic.includes("Contribution Value:");
+    return topic.includes("Kudos Value:");
 }
 
 function extractContributionValue(topic: string | undefined): string | null {
     if (!topic) return null;
-    const match = topic.match(/Contribution Value:\s*(.+?)(?:\n|$)/);
+    const match = topic.match(/Kudos Value:\s*(.+?)(?:\n|$)/);
     return match ? match[1].trim() : null;
 }
 
@@ -392,7 +392,7 @@ export default function RoomHeader({
                                     className="mx_RoomHeader_contributionValue"
                                     style={{ color: "var(--cpd-color-text-secondary)", marginTop: "2px" }}
                                 >
-                                    Contribution Value: {contributionValue}B
+                                    Kudos Value: {contributionValue}B
                                 </BodyText>
                             )}
 

@@ -194,7 +194,7 @@ export default class CreateRoomDialog extends React.Component<IProps, IState> {
 
         if (this.state.topic) {
             if (this.isDCASpace() && this.state.contributionValue) {
-                createOpts.topic = `${this.state.topic}\n\nContribution Value: ${this.state.contributionValue}`;
+                createOpts.topic = `${this.state.topic}\n\nKudos Value: ${this.state.contributionValue}`;
             } else if (this.isGOVSpace()) {
                 // For GOV space, truncate description to 150 characters for room topic
                 const truncatedTopic = this.state.topic.length > 150 
@@ -205,7 +205,7 @@ export default class CreateRoomDialog extends React.Component<IProps, IState> {
                 createOpts.topic = this.state.topic;
             }
         } else if (this.isDCASpace() && this.state.contributionValue) {
-            createOpts.topic = `Contribution Value: ${this.state.contributionValue}`;
+            createOpts.topic = `Kudos Value: ${this.state.contributionValue}`;
         }
         if (this.state.noFederate) {
             createOpts.creation_content = { "m.federate": false };
@@ -876,7 +876,7 @@ export default class CreateRoomDialog extends React.Component<IProps, IState> {
                         )}
                         {this.isDCASpace() && (
                             <Field
-                                label="Contribution Value (B)"
+                                label="Kudos Value (B)"
                                 onChange={this.onContributionValueChange}
                                 value={this.state.contributionValue}
                                 className="mx_CreateRoomDialog_contributionValue"

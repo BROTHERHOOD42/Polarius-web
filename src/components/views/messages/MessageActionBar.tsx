@@ -357,10 +357,10 @@ const ReactButton: React.FC<IReactButtonProps> = ({ mxEvent, reactions, onFocusC
                 title={
                     !canReact 
                         ? hasUserAlreadyVerified
-                            ? "You have already verified this message"
-                            : "Verification authority required"
+                            ? "You have already given kudos to this message"
+                            : "Kudos authority required"
                         : isDCA 
-                            ? "Verification" 
+                            ? "Kudos!" 
                             : _t("action|react")
                 }
                 onClick={canReact ? onClick : (e: ButtonEvent) => { e.preventDefault(); e.stopPropagation(); }}

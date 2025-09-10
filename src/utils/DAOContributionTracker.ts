@@ -117,9 +117,9 @@ export class DAOContributionTracker {
                 // DCA 룸에서 직접 기여가치 추출 (토픽에서)
                 const dcaRoomTopic = dcaRoom.currentState.getStateEvents(EventType.RoomTopic, "")?.getContent()?.topic || "";
                 console.log("🔍 DCA Room Topic:", dcaRoomTopic);
-                const contributionMatch = dcaRoomTopic.match(/Contribution Value:\s*(\d+)(?:\w*)/i);
+                const contributionMatch = dcaRoomTopic.match(/Kudos Value:\s*(\d+)(?:\w*)/i);
                 const contributionValue = contributionMatch ? parseInt(contributionMatch[1]) : 10;
-                console.log("💰 Extracted contribution value from DCA room:", contributionValue);
+                console.log("💰 Extracted kudos value from DCA room:", contributionValue);
 
                 // Ledger 룸 찾기
                 const ledgerRoom = this.findLedgerRoom(daoSpaceId);

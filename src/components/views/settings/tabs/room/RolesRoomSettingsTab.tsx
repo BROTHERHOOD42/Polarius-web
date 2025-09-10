@@ -346,9 +346,9 @@ export default class RolesRoomSettingsTab extends React.Component<IProps, RolesR
                 hideForSpace: true,
             },
             "verification": {
-                desc: _t("room_settings|permissions|verification"),
+                desc: "Kudos",
                 defaultValue: 25,
-                hideForSpace: true,
+                hideForSpace: false,
             },
         };
 
@@ -431,6 +431,18 @@ export default class RolesRoomSettingsTab extends React.Component<IProps, RolesR
                 }
 
                 const value = parseIntWithDefault(get(plContent, key), descriptor.defaultValue);
+                
+                // Debug logging for verification
+                if (key === "verification") {
+                    console.log("🔍 Verification power level descriptor:", {
+                        key,
+                        descriptor,
+                        value,
+                        isSpaceRoom,
+                        hideForSpace: descriptor.hideForSpace
+                    });
+                }
+                
                 return (
                     <div key={index} className="">
                         <PowerSelector
