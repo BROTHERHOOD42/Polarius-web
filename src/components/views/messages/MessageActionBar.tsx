@@ -156,7 +156,7 @@ function hasVerificationAuthority(room: Room, userId: string): boolean {
     const plContent = plEvent?.getContent() ?? {};
     
     const userLevel = plContent.users?.[userId] ?? plContent.users_default ?? 0;
-    const verificationLevel = plContent.verification ?? 50; // 기본 검증 권한 레벨을 50으로 설정
+    const verificationLevel = plContent.verification ?? 25; // 기본 검증 권한 레벨을 25로 설정
     
     console.log("🔍 Power level check:", {
         userId,

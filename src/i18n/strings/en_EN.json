@@ -2364,7 +2364,8 @@
             "send_event_type": "Send %(eventType)s events",
             "state_default": "Change settings",
             "title": "Roles & Permissions",
-            "users_default": "Default role"
+            "users_default": "Default role",
+            "verification": "Verify messages"
         },
         "security": {
             "enable_encryption_confirm_description": "Once enabled, encryption for a room cannot be disabled. Messages sent in an encrypted room cannot be seen by the server, only by the participants of the room. Enabling encryption may prevent many bots and bridges from working correctly. <a>Learn more about encryption.</a>",

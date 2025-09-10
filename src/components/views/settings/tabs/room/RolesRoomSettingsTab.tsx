@@ -345,6 +345,11 @@ export default class RolesRoomSettingsTab extends React.Component<IProps, RolesR
                 defaultValue: 50,
                 hideForSpace: true,
             },
+            "verification": {
+                desc: _t("room_settings|permissions|verification"),
+                defaultValue: 25,
+                hideForSpace: true,
+            },
         };
 
         const eventsLevels = plContent.events || {};
