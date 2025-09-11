@@ -1,6 +1,6 @@
 # Beginner Development Setting Guide
 
-*Please click [here](https://github.com/BROTHERHOOD42/Polarius-web/blob/main/docs/Beginner_Development_Setting_Guide_kr.md) for the Korean version.
+*한국어 버전은 [이곳](https://github.com/BROTHERHOOD42/Polarius-web/blob/main/docs/Beginner_Development_Setting_Guide_kr.md)을 클릭해 주세요.
 
 > **Summary (At a glance)**
 >
