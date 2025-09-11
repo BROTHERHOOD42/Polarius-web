@@ -1,5 +1,9 @@
 <div align="center"><br><img width="847" height="135" alt="image" src="https://github.com/user-attachments/assets/90db8ca8-4ca5-4ef8-9415-5e16d798bc45" /></div><br>
 
+## README
+
+*한국어 버전은 [이곳](https://github.com/BROTHERHOOD42/Polarius-web/README_kr.md)을 클릭해 주세요.
+  
 ### Summary
 
 A Matrix client for a proof-of-contribution economic system with contribution-weighted governance, adapted from [Element](https://github.com/element-hq/element-web). Detailed descriptions can be found in the [Polarius Overview.](https://github.com/BROTHERHOOD42/Polarius-web/docs/polarius.md)
