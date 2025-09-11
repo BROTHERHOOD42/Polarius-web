@@ -21,3 +21,16 @@ For detailed commands, refer to the [Beginner Development Guide.](https://github
 
 ## Contributing
 
+Anyone can contribute the code to the Polarius-web and receive BROTHERHOOD currency through Polarius' proof of contribution.
+
+### contribution process
+
+1. Fork Polarius-web on GitHub, make changes and test them in your development environment, then create a pull request.  
+   It is recommended that the PR title clearly describes the changes.  
+   It is recommended that the PR description include:  
+   Reasons and contents of the change  
+   Existing Issues and Solutions  
+   Front-and-back comparison screenshots  
+   Test Method  
+   Add annotations inside the code  
+2. 
