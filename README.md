@@ -7,3 +7,13 @@ A Matrix client for a proof-of-contribution economic system with contribution-we
 ## Getting Started
 
 Polarius users can get started by accessing https://brotherhood42.github.io.
+
+### The recommended development settings are as follows.
+
+1. Dendrite Setting [(guide)](https://element-hq.github.io/dendrite/)
+2. Clone Polarius-web and Polarius-desktop
+3. Build Polarius-web, copy to Polarius-desktop/webapp
+4. Start Polarius-desktop, go to localhost:port
+
+## Contributing
+
