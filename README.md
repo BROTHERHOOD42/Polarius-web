@@ -1,4 +1,6 @@
-<div align="center"><br><img width="674" height="119" alt="Polarius" src="https://github.com/user-attachments/assets/1bd8203b-8e03-4be6-a1b9-c0c800035768" /></div><br>
+<div align="center"><br><img width="847" height="135" alt="image" src="https://github.com/user-attachments/assets/90db8ca8-4ca5-4ef8-9415-5e16d798bc45" />
+
+</div><br>
 
 ### Summary
 
@@ -14,6 +16,8 @@ Polarius users can get started by accessing https://brotherhood42.github.io.
 2. Clone Polarius-web and Polarius-desktop
 3. Build Polarius-web, copy to Polarius-desktop/webapp
 4. Start Polarius-desktop, go to localhost:port
+  
+For detailed commands, refer to the [Beginner Development Guide.](https://github.com/BROTHERHOOD42/Polarius-web/docs/Beginner_Development_Setting_Guide.md)
 
 ## Contributing
 
