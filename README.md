@@ -1,6 +1,4 @@
-<div align="center"><br><img width="847" height="135" alt="image" src="https://github.com/user-attachments/assets/90db8ca8-4ca5-4ef8-9415-5e16d798bc45" />
-
-</div><br>
+<div align="center"><br><img width="847" height="135" alt="image" src="https://github.com/user-attachments/assets/90db8ca8-4ca5-4ef8-9415-5e16d798bc45" /></div><br>
 
 ### Summary
 
