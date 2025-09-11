@@ -17,7 +17,7 @@ Polarius users can get started by accessing https://brotherhood42.github.io.
 3. Build Polarius-web, copy to Polarius-desktop/webapp
 4. Start Polarius-desktop, go to localhost:port
   
-For detailed commands, refer to the [Beginner Development Guide.](https://github.com/BROTHERHOOD42/Polarius-web/docs/Beginner_Development_Setting_Guide.md)
+For detailed commands, refer to the [Beginner Development Guide.](https://github.com/BROTHERHOOD42/Polarius-web/blob/main/docs/Beginner_Development_Setting_Guide.md)
 
 ## Contributing
 
