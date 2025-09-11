@@ -111,11 +111,11 @@ const DAOWalletSection: React.FC<Props> = ({ space }) => {
             const backupData = `Mnemonic: ${newWallet.mnemonic}\nAddress: ${newWallet.address}`;
             
             Modal.createDialog(InfoDialog, {
-                title: "지갑 생성 완료",
+                title: "Wallet Created Successfully",
                 description: (
                     <div>
-                        <p><strong>마이월렛이 생성되었습니다!</strong></p>
-                        <p>모든 DAO에서 동일한 지갑을 사용할 수 있습니다.</p>
+                        <p><strong>MyWallet has been created!</strong></p>
+                        <p>You can use the same wallet across all DAOs.</p>
                         <div style={{ 
                             backgroundColor: "#f5f5f5", 
                             padding: "15px", 
@@ -126,8 +126,8 @@ const DAOWalletSection: React.FC<Props> = ({ space }) => {
                             fontSize: "12px",
                             lineHeight: "1.4"
                         }}>
-                            <div><strong>지갑 주소:</strong> {newWallet.address}</div>
-                            <div><strong>니모닉:</strong> {newWallet.mnemonic}</div>
+                            <div><strong>Wallet Address:</strong> {newWallet.address}</div>
+                            <div><strong>Mnemonic:</strong> {newWallet.mnemonic}</div>
                         </div>
                         <div style={{ marginTop: "15px" }}>
                             <AccessibleButton
@@ -147,10 +147,10 @@ const DAOWalletSection: React.FC<Props> = ({ space }) => {
                                 Copy All Information
                             </AccessibleButton>
                         </div>
-                        <p><em>니모닉 문구를 안전한 곳에 보관하세요.</em></p>
+                        <p><em>Please keep your mnemonic phrase in a safe place.</em></p>
                     </div>
                 ),
-                button: "확인"
+                button: "OK"
             });
 
             DAOContributionTracker.getInstance().initialize();
