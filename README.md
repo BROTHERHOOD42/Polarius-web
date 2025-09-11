@@ -2,4 +2,8 @@
 
 ### Summary
 
-A Matrix client for a proof-of-contribution economic system with contribution-weighted governance, adapted from Element.
+A Matrix client for a proof-of-contribution economic system with contribution-weighted governance, adapted from [Element](https://github.com/element-hq/element-web). Detailed descriptions can be found in the [Polarius Overview.](https://github.com/BROTHERHOOD42/Polarius-web/docs/polarius.md)
+
+## Getting Started
+
+Polarius users can get started by accessing https://brotherhood42.github.io.
