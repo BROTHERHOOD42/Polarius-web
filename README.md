@@ -23,14 +23,49 @@ For detailed commands, refer to the [Beginner Development Guide.](https://github
 
 Anyone can contribute the code to the Polarius-web and receive BROTHERHOOD currency through Polarius' proof of contribution.
 
-### contribution process
+### Contribution process
 
-1. Fork Polarius-web on GitHub, make changes and test them in your development environment, then create a pull request.  
-   It is recommended that the PR title clearly describes the changes.  
-   It is recommended that the PR description include:  
-   Reasons and contents of the change  
-   Existing Issues and Solutions  
-   Front-and-back comparison screenshots  
-   Test Method  
-   Add annotations inside the code  
-2. 
+1. Fork Polarius-web on GitHub  
+  
+2. Make changes and test them in your development environment, then create a pull request.  
+  
+   *PR description must include:  
+   Your public key in BROTHERHOOD DAO Wallet, Reasons and contents of the change, Existing Issues and Solutions, Front-and-back comparison screenshots, Test Method, Add annotations inside the code  
+  
+   *How to make a BROTHERHOOD DAO wallet in Polarius client:  
+   After launching Polarius and logging in, search for #brotherhood42:matrix.org in the client’s search bar and join the room.  
+   Once inside the DAO Space, click "Create New Wallet" on the DAO Wallet card.  
+   Make sure to securely save your mnemonic phrase and public key (wallet address).
+
+3. Review and Merge
+
+4. Proof of Contribution in 'Polarius Development' room
+
+   *This room is in the DCA space of the BROTHERHOOD space.  
+   In this room, you can share your pull request (PR) link along with a brief request comment.  
+   A verifier from the DCA room will review your PR and leave a Kubos once it's approved.  
+   After that, an equivalent amount of BROTHERHOOD tokens will be automatically distributed to your DAO Wallet, based on the value of the Kubos.(It's okay to leave a comment even after the pull request has been merged.)  
+
+   *BROTHERHOOD (B) is a new type of currency issued based on contribution. It can be freely used for exchanges and transactions between users. Additionally, when a proposal is created in the GOV Space, your BROTHERHOOD (B) balance is referenced during the snapshot process, allowing you to participate in DAO governance.  
+
+## Workflow
+   
+When a release is created on polarius-web, a corresponding release is automatically generated for polarius-desktop, and it is deployed to https://brotherhood42.github.io
+
+### Details
+   
+1. Triggering a Web Release  
+   When a release is published on the polarius-web repository with a tag that starts with v, it automatically triggers a build process.  
+   As part of this process, the webapp folder in the polarius-web repository is updated with the latest build.  
+  
+2. Desktop Release Automation  
+   Once the webapp folder is updated, a signal is sent to the polarius-desktop repository.  
+   This triggers a build process for all supported platforms, using the updated webapp and the generated webapp.asar:  
+   + Windows (x64, ARM64)  
+   + macOS  
+   + Linux (amd64, ARM64)
+     
+   After the builds complete, a new release is automatically created in the polarius-desktop repository.
+
+
+   
