@@ -2,7 +2,7 @@
 
 ### 요약  
 
-기여도 기반 경제 시스템과 기여도 가중 거버넌스를 위한 매트릭스 클라이언트로, [Element](https://github.com/element-hq/element-web)를 기반으로 제작되었습니다. 자세한 설명은 [Polarius 개요](https://github.com/BROTHERHOOD42/Polarius-web/docs/polarius_kr.md) 문서에서 확인할 수 있습니다.  
+공동의 목표에 대한 기여증명 화폐 발행구조와 기여량 기반의 참정구조가 결합된 매트릭스 클라이언트로, [Element](https://github.com/element-hq/element-web)를 기반으로 제작되었습니다. 자세한 설명은 [Polarius 개요](https://github.com/BROTHERHOOD42/Polarius-web/docs/polarius_kr.md) 문서에서 확인할 수 있습니다.  
 
 ## 시작하기  
 
