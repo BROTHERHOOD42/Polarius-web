@@ -2,7 +2,7 @@
 
 ## README
 
-*한국어 버전은 [이곳](https://github.com/BROTHERHOOD42/Polarius-web/README_kr.md)을 클릭해 주세요.
+*한국어 버전은 [이곳]([https://github.com/BROTHERHOOD42/Polarius-web/README_kr.md](https://github.com/BROTHERHOOD42/Polarius-web/blob/main/README_kr.md))을 클릭해 주세요.
   
 ### Summary
 
