@@ -144,30 +144,46 @@ function findDAOSpace(room: Room): Room | null {
     return null;
 }
 
-// Check if user has verification authority in DAO space
+// Check if user has verification authority in DAO space or DCA room
 function hasVerificationAuthority(room: Room, userId: string): boolean {
+    // First check DAO space power levels
     const daoSpace = findDAOSpace(room);
-    if (!daoSpace) {
-        console.log("❌ No DAO space found for verification authority check");
-        return false;
+    if (daoSpace) {
+        const plEvent = daoSpace.currentState.getStateEvents(EventType.RoomPowerLevels, "");
+        const plContent = plEvent?.getContent() ?? {};
+        
+        const userLevel = plContent.users?.[userId] ?? plContent.users_default ?? 0;
+        const verificationLevel = plContent.verification ?? 25; // 기본 검증 권한 레벨을 25로 설정
+        
+        console.log("🔍 DAO Space power level check:", {
+            userId,
+            userLevel,
+            verificationLevel,
+            hasAuthority: userLevel >= verificationLevel,
+            daoSpaceName: daoSpace.name
+        });
+        
+        if (userLevel >= verificationLevel) {
+            return true;
+        }
     }
     
-    // Get power levels from DAO space
-    const plEvent = daoSpace.currentState.getStateEvents(EventType.RoomPowerLevels, "");
-    const plContent = plEvent?.getContent() ?? {};
+    // If not found in DAO space, check DCA room power levels
+    const roomPlEvent = room.currentState.getStateEvents(EventType.RoomPowerLevels, "");
+    const roomPlContent = roomPlEvent?.getContent() ?? {};
     
-    const userLevel = plContent.users?.[userId] ?? plContent.users_default ?? 0;
-    const verificationLevel = plContent.verification ?? 25; // 기본 검증 권한 레벨을 25로 설정
+    const roomUserLevel = roomPlContent.users?.[userId] ?? roomPlContent.users_default ?? 0;
+    const roomVerificationLevel = roomPlContent.verification ?? 25; // 기본 검증 권한 레벨을 25로 설정
     
-    console.log("🔍 Power level check:", {
+    console.log("🔍 DCA Room power level check:", {
         userId,
-        userLevel,
-        verificationLevel,
-        hasAuthority: userLevel >= verificationLevel,
-        daoSpaceName: daoSpace.name
+        userLevel: roomUserLevel,
+        verificationLevel: roomVerificationLevel,
+        hasAuthority: roomUserLevel >= roomVerificationLevel,
+        roomName: room.name
     });
     
-    return userLevel >= verificationLevel;
+    return roomUserLevel >= roomVerificationLevel;
 }
 
 interface IOptionsButtonProps {
