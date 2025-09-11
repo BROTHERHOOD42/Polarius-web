@@ -285,12 +285,17 @@ const ReactButton: React.FC<IReactButtonProps> = ({ mxEvent, reactions, onFocusC
     const hasUserAlreadyVerified = isDCA && reactions?.getAnnotationsBySender() ? 
         reactions.getAnnotationsBySender()[currentUserId]?.has("👍") : false;
     
-    const canReact = !isDCA || (hasVerificationAuthority(room!, currentUserId) && !hasUserAlreadyVerified);
+    // Check if this is the user's own message
+    const isOwnMessage = mxEvent.getSender() === currentUserId;
+    
+    const canReact = !isDCA || (hasVerificationAuthority(room!, currentUserId) && !hasUserAlreadyVerified && !isOwnMessage);
     
     // Debug logging
     if (room && isDCA) {
         console.log("DCA Room detected:", room.name);
         console.log("User ID:", currentUserId);
+        console.log("Message sender:", mxEvent.getSender());
+        console.log("Is own message:", isOwnMessage);
         console.log("User already verified:", hasUserAlreadyVerified);
         console.log("Can react:", canReact);
     }
@@ -340,7 +345,9 @@ const ReactButton: React.FC<IReactButtonProps> = ({ mxEvent, reactions, onFocusC
                     !canReact 
                         ? hasUserAlreadyVerified
                             ? "You have already given kudos to this message"
-                            : "Kudos authority required"
+                            : isOwnMessage
+                                ? "Cannot give kudos to your own message"
+                                : "Kudos authority required"
                         : isDCA 
                             ? "Kudos!" 
                             : _t("action|react")
