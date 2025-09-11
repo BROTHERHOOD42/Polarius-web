@@ -66,6 +66,7 @@ import PosthogTrackers from "../../../PosthogTrackers.ts";
 import { HideActionButton } from "./HideActionButton.tsx";
 import SpaceStore from "../../../stores/spaces/SpaceStore";
 import DAOContributionTracker from "../../../utils/DAOContributionTracker";
+import { CheckPublicKeyDialog } from "../dialogs/CheckPublicKeyDialog";
 
 // DCA 룸인지 확인 (DCA 스페이스 안의 모든 룸) - DAOContributionTracker와 동일한 로직
 function isDCARoom(room: Room): boolean {
@@ -249,9 +250,10 @@ interface IReactButtonProps {
     mxEvent: MatrixEvent;
     reactions?: Relations | null | undefined;
     onFocusChange: (menuDisplayed: boolean) => void;
+    onDCADialogOpen?: () => void;
 }
 
-const ReactButton: React.FC<IReactButtonProps> = ({ mxEvent, reactions, onFocusChange }) => {
+const ReactButton: React.FC<IReactButtonProps> = ({ mxEvent, reactions, onFocusChange, onDCADialogOpen }) => {
     const [menuDisplayed, button, openMenu, closeMenu] = useContextMenu();
     const [onFocus, isActive] = useRovingTabIndex(button);
     useEffect(() => {
@@ -298,46 +300,10 @@ const ReactButton: React.FC<IReactButtonProps> = ({ mxEvent, reactions, onFocusC
                 return;
             }
 
-            // DCA 룸에서는 바로 ✅ 리액션 추가 (기여증명 발행)
+            // DCA 룸에서는 공개키 확인 다이얼로그를 먼저 띄움
             if (isDCA) {
-                const client = MatrixClientPeg.safeGet();
-                const eventId = mxEvent.getId();
-                const roomId = mxEvent.getRoomId();
-                
-                if (!eventId || !roomId) {
-                    console.error("Missing event ID or room ID for verification");
-                    return;
-                }
-                
-                console.log("🔥 DCA VERIFICATION CLICKED! Starting immediate transaction process...");
-                
-                // 즉시 트랜잭션 처리 시작
-                const tracker = DAOContributionTracker.getInstance();
-                tracker.initialize(); // 확실히 초기화
-                const verifierUserId = client.getSafeUserId();
-                
-                // 바로 검증 이벤트 처리 (리액션 전송과 동시에)
-                tracker.processVerificationForEvent(mxEvent, verifierUserId, roomId).catch(error => {
-                    console.error("💥 Failed to process verification immediately:", error);
-                });
-                
-                const reactionKey = "👍";
-                const verificationData = {
-                    "m.relates_to": {
-                        "rel_type": RelationType.Annotation as const,
-                        "event_id": eventId,
-                        "key": reactionKey,
-                    },
-                    "verification": true,
-                    "issued_at": Date.now(),
-                    "issuer": client.getSafeUserId(),
-                };
-                
-                client.sendEvent(roomId, EventType.Reaction, verificationData).then(() => {
-                    console.log("✅ Verification reaction sent successfully");
-                }).catch(err => {
-                    console.error("Failed to send verification:", err);
-                });
+                console.log("🔥 DCA VERIFICATION CLICKED! Opening public key check dialog...");
+                onDCADialogOpen?.();
                 return;
             }
 
@@ -443,9 +409,17 @@ interface IMessageActionBarProps {
     getRelationsForEvent?: GetRelationsForEvent;
 }
 
-export default class MessageActionBar extends React.PureComponent<IMessageActionBarProps> {
+interface IMessageActionBarState {
+    showCheckPublicKeyDialog: boolean;
+}
+
+export default class MessageActionBar extends React.PureComponent<IMessageActionBarProps, IMessageActionBarState> {
     public static contextType = RoomContext;
     declare public context: React.ContextType<typeof RoomContext>;
+
+    public state: IMessageActionBarState = {
+        showCheckPublicKeyDialog: false,
+    };
 
     public componentDidMount(): void {
         if (this.props.mxEvent.status && this.props.mxEvent.status !== EventStatus.SENT) {
@@ -704,6 +678,7 @@ export default class MessageActionBar extends React.PureComponent<IMessageAction
                             mxEvent={this.props.mxEvent}
                             reactions={this.props.reactions}
                             onFocusChange={this.onFocusChange}
+                            onDCADialogOpen={() => this.setState({ showCheckPublicKeyDialog: true })}
                             key="react"
                         />,
                     );
@@ -776,9 +751,20 @@ export default class MessageActionBar extends React.PureComponent<IMessageAction
 
         // aria-live=off to not have this read out automatically as navigating around timeline, gets repetitive.
         return (
-            <Toolbar className="mx_MessageActionBar" aria-label={_t("timeline|mab|label")} aria-live="off">
-                {toolbarOpts}
-            </Toolbar>
+            <React.Fragment>
+                <Toolbar className="mx_MessageActionBar" aria-label={_t("timeline|mab|label")} aria-live="off">
+                    {toolbarOpts}
+                </Toolbar>
+                
+                {this.state.showCheckPublicKeyDialog && (
+                    <CheckPublicKeyDialog
+                        mxEvent={this.props.mxEvent}
+                        onFinished={(confirmed: boolean) => {
+                            this.setState({ showCheckPublicKeyDialog: false });
+                        }}
+                    />
+                )}
+            </React.Fragment>
         );
     }
 }

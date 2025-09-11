@@ -712,6 +712,81 @@ export class DAOContributionTracker {
         console.log("✅ DAO Contribution Tracker initialized successfully");
     }
 
+    // 메시지에서 공개키 추출
+    extractPublicKeyFromEvent(event: MatrixEvent): string | null {
+        try {
+            const content = event.getContent();
+            const body = content.body || '';
+            
+            console.log("🔍 Extracting public key from event:", {
+                eventId: event.getId(),
+                content: content,
+                body: body,
+                bodyLength: body.length,
+                fullEvent: event.event
+            });
+            
+            // 1. 메시지 본문에서 공개키 패턴 찾기 (예: 0x로 시작하는 40자리 hex)
+            const publicKeyMatch = body.match(/0x[a-fA-F0-9]{40}/);
+            if (publicKeyMatch) {
+                console.log("✅ Found public key with 0x prefix:", publicKeyMatch[0]);
+                return publicKeyMatch[0];
+            }
+            
+            // 2. 다른 패턴들도 시도
+            const hexMatch = body.match(/[a-fA-F0-9]{40}/);
+            if (hexMatch) {
+                console.log("✅ Found public key without 0x prefix:", hexMatch[0]);
+                return '0x' + hexMatch[0];
+            }
+            
+            // 3. 더 넓은 범위의 hex 패턴 시도 (32-64자리)
+            const wideHexMatch = body.match(/[a-fA-F0-9]{32,64}/);
+            if (wideHexMatch) {
+                console.log("✅ Found wide hex pattern:", wideHexMatch[0]);
+                return '0x' + wideHexMatch[0];
+            }
+            
+            // 4. content의 다른 필드들 확인
+            const contentStr = JSON.stringify(content);
+            const contentPublicKeyMatch = contentStr.match(/0x[a-fA-F0-9]{40}/);
+            if (contentPublicKeyMatch) {
+                console.log("✅ Found public key in content:", contentPublicKeyMatch[0]);
+                return contentPublicKeyMatch[0];
+            }
+            
+            // 5. 전체 이벤트에서 검색
+            const eventStr = JSON.stringify(event.event);
+            const eventPublicKeyMatch = eventStr.match(/0x[a-fA-F0-9]{40}/);
+            if (eventPublicKeyMatch) {
+                console.log("✅ Found public key in event:", eventPublicKeyMatch[0]);
+                return eventPublicKeyMatch[0];
+            }
+            
+            // 6. 특정 필드들 확인
+            if (content.wallet_address) {
+                console.log("✅ Found wallet_address field:", content.wallet_address);
+                return content.wallet_address;
+            }
+            
+            if (content.public_key) {
+                console.log("✅ Found public_key field:", content.public_key);
+                return content.public_key;
+            }
+            
+            if (content.address) {
+                console.log("✅ Found address field:", content.address);
+                return content.address;
+            }
+            
+            console.log("❌ No public key pattern found anywhere in the event");
+            return null;
+        } catch (error) {
+            console.error("Failed to extract public key from event:", error);
+            return null;
+        }
+    }
+
     // 정리
     cleanup(): void {
         // 이벤트 리스너 제거는 Matrix 클라이언트가 처리
