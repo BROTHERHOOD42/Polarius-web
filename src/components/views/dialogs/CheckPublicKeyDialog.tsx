@@ -109,14 +109,38 @@ export const CheckPublicKeyDialog: React.FC<IProps> = ({ onFinished, mxEvent }) 
                 </div>
             </div>
             
-            <DialogButtons
-                primaryButton={_t("Confirm Kudos")}
-                onPrimaryButtonClick={handleConfirm}
-                cancelButton={_t("Cancel")}
-                onCancel={handleCancel}
-                primaryButtonClass="mx_CheckPublicKeyDialog_confirmButton"
-                disabled={isProcessing}
-            />
+            <div style={{ display: 'flex', justifyContent: 'flex-start', gap: '12px', marginTop: '16px' }}>
+                <button
+                    onClick={handleCancel}
+                    disabled={isProcessing}
+                    style={{
+                        padding: '8px 16px',
+                        border: '1px solid #ccc',
+                        borderRadius: '4px',
+                        backgroundColor: '#f5f5f5',
+                        cursor: 'pointer',
+                        fontSize: '14px'
+                    }}
+                >
+                    {_t("Cancel")}
+                </button>
+                <button
+                    onClick={handleConfirm}
+                    disabled={isProcessing}
+                    style={{
+                        padding: '8px 16px',
+                        border: 'none',
+                        borderRadius: '4px',
+                        backgroundColor: '#007bff',
+                        color: 'white',
+                        cursor: isProcessing ? 'not-allowed' : 'pointer',
+                        fontSize: '14px',
+                        opacity: isProcessing ? 0.6 : 1
+                    }}
+                >
+                    {isProcessing ? _t("Processing...") : _t("Confirm Kudos")}
+                </button>
+            </div>
         </BaseDialog>
     );
 };
