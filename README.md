@@ -1,4 +1,5 @@
-<div align="center"><br><img width="674" height="119" alt="Polarius" src="https://github.com/user-attachments/assets/1bd8203b-8e03-4be6-a1b9-c0c800035768" /></div><br>
+<div align="center"><br><img width="752" height="133" alt="image" src="https://github.com/user-attachments/assets/2d46ffa0-6ddf-4ba8-ab79-5a75f2f6aefe" />
+</div><br>
 
 ### Summary
 
