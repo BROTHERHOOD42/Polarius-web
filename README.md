@@ -37,11 +37,13 @@ Anyone can contribute the code to the Polarius-web and receive BROTHERHOOD curre
    *How to make a BROTHERHOOD DAO wallet in Polarius client:  
    After launching Polarius and logging in, search for #brotherhood42:matrix.org in the client’s search bar and join the room.  
    Once inside the DAO Space, click "Create New Wallet" on the DAO Wallet card.  
-   Make sure to securely save your mnemonic phrase and public key (wallet address).
+   Make sure to securely save your mnemonic phrase and public key (wallet address).  
+  
+   *To use the DAO system smoothly, you must also join the Ledger Room of the DAO Space and its subspaces, GOV Space and DCA Space.
 
-3. Review and Merge
+4. Review and Merge
 
-4. Proof of Contribution in 'Polarius Development' room
+5. Proof of Contribution in 'Polarius Development' room
 
    *This room is in the DCA space of the BROTHERHOOD space.  
    In this room, you can share your pull request (PR) link along with a brief request comment.  
