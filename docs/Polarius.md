@@ -18,7 +18,8 @@
 
 Polarius는 공동체에 대한 기여증명을 기반으로 화폐를 발행하여 구성원의 기여분배권을 보장합니다. 이러한 발행구조에서 화폐 보유량은 곧 기여의 정량적 수치이므로 보유량 기반의 시점 고정형 거버넌스를 구현하여 기여참정권을 보장합니다.
 
-<div align="center"><br><img width="771" height="436" alt="Polarius drawio" src="https://github.com/user-attachments/assets/35a21425-3eca-4b7b-8127-3d7266d94c82" /></div><br>
+<div align="center"><br><img width="1157" height="654" alt="Polarius drawio" src="https://github.com/user-attachments/assets/94619241-3350-4c0b-be0d-3a0f3e211681" />
+</div><br>
 
 ### 기여증명 발행구조: 기여에 대한 분배권의 보장
 
