@@ -24,7 +24,7 @@ Polarius는 공동체에 대한 기여증명을 기반으로 화폐를 발행하
 
 누구나 Polarius 클라이언트상에서 공동의 목표를 가지는 자율조직을 구성할 수 있으며, 누구나 구성된 조직 내 통신룸에서의 공동 목표에 대한 기여증명 기능을 통하여 화폐를 발행받을 수 있습니다. 이로써 화폐는 기여주체에게 직접적으로 발행되어 구성원의 기여원동력이 보존되며, 공동체는 양성 피드백구조와 함께 지속성을 확보하게 됩니다.  
   
-**로그인**
+[클라이언트](https://brotherhood42.github.io) **로그인**
 <img width="1264" height="603" alt="1" src="https://github.com/user-attachments/assets/f92f475f-1784-4bb5-a236-d4c2fc4250d5" />
 <img width="1262" height="605" alt="2" src="https://github.com/user-attachments/assets/8bb2332f-744e-4b36-a43c-20d701ad34da" />
 <img width="1267" height="617" alt="3" src="https://github.com/user-attachments/assets/40f27a74-7f9b-4521-9a45-3935030cac23" />  
