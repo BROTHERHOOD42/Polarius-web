@@ -26,17 +26,20 @@ Polarius는 공동체에 대한 기여증명을 기반으로 화폐를 발행하
 
 누구나 Polarius 클라이언트상에서 공동의 목표를 가지는 자율조직을 구성할 수 있으며, 누구나 구성된 조직 내 통신룸에서의 공동 목표에 대한 기여증명 기능을 통하여 화폐를 발행받을 수 있습니다. 이로써 화폐는 기여주체에게 직접적으로 발행되어 구성원의 기여원동력이 보존되며, 공동체는 양성 피드백구조와 함께 지속성을 확보하게 됩니다.  
   
-[클라이언트](https://brotherhood42.github.io) **로그인**
+**로그인**  
+*클라이언트는 https://brotherhood42.github.io 에서 제공됩니다.
 <img width="1264" height="603" alt="1" src="https://github.com/user-attachments/assets/f92f475f-1784-4bb5-a236-d4c2fc4250d5" />
 <img width="1262" height="605" alt="2" src="https://github.com/user-attachments/assets/8bb2332f-744e-4b36-a43c-20d701ad34da" />
 <img width="1267" height="617" alt="3" src="https://github.com/user-attachments/assets/40f27a74-7f9b-4521-9a45-3935030cac23" />  
   
-**DAO 생성**
+**DAO 생성**  
+*DAO생성시 DAO space 하위에 ledger room 및 GOV space, DCA space가 자동생성됩니다. 이 세가지 요소는 DAO의 필수 기능을 수행합니다. 
 <img width="1263" height="625" alt="4" src="https://github.com/user-attachments/assets/99326ef6-9fde-4aee-b949-d0ac0a2df128" />
 <img width="1265" height="621" alt="5" src="https://github.com/user-attachments/assets/6abedb3b-276b-4999-832f-e1d268007247" />
 <img width="1269" height="626" alt="6" src="https://github.com/user-attachments/assets/18467051-51ee-4c31-927d-ebac9735295d" />  
   
-**DAO Wallet 생성**
+**DAO Wallet 생성**  
+*Wallet생성시 표시되는 니모닉 문구를 저장하세요. 니모닉 문구가 없으면 지갑을 복구할 수 없습니다.
 <img width="1258" height="621" alt="7" src="https://github.com/user-attachments/assets/67b56dca-f619-4468-8ed2-0addad9c9eb7" />
 <img width="1252" height="628" alt="8" src="https://github.com/user-attachments/assets/69429845-a819-49dd-8085-1180e6dddd32" />
 <img width="1254" height="622" alt="9" src="https://github.com/user-attachments/assets/31c5505b-c23a-4efa-9c1e-3a87ca66063a" />  
@@ -48,13 +51,14 @@ Polarius는 공동체에 대한 기여증명을 기반으로 화폐를 발행하
 <img width="1246" height="609" alt="13" src="https://github.com/user-attachments/assets/0b7abd93-3e78-47f4-90e4-a273903bfdbf" />  
   
 **기여증명 (검증자 시점)**  
-*기여증명을 포함한 DAO시스템을 원활하게 이용하기 위해서는 ledger room 및 GOV spacce, DCA space를 참가해야 합니다. 
+*사용자가 기여증명을 포함한 DAO시스템을 원활하게 이용하기 위해서는 ledger room 및 GOV spacce, DCA space를 참가해야 합니다. 
 <img width="1248" height="602" alt="14" src="https://github.com/user-attachments/assets/9eb75c0a-3714-4d01-a104-eb31b2bbecdf" />
 <img width="1248" height="604" alt="15" src="https://github.com/user-attachments/assets/1005af08-35a7-4c77-88f5-cb8acf1a780a" />
 <img width="1248" height="606" alt="16" src="https://github.com/user-attachments/assets/414cbc05-3e0b-49c8-819f-d96ccd63f654" />
 <img width="1250" height="599" alt="17" src="https://github.com/user-attachments/assets/334b84c9-b038-481b-8b6c-88b721553561" />  
   
-**검증권한 부여 (선택사항)**
+**검증권한 부여 (선택사항)**  
+*검증권한 레벨 설정은 DAO space 및 DCA room 'Settings' 내 Roles & Permissions 메뉴 하단 'Kudos'란에서 가능합니다. (기본값: 25)
 <img width="1256" height="611" alt="18" src="https://github.com/user-attachments/assets/aaf2a95e-ed5a-47d0-a29c-2f34b8f3d675" />
 <img width="1256" height="604" alt="19" src="https://github.com/user-attachments/assets/4062c89f-295e-478d-92d1-606bc463cdab" />  
   
