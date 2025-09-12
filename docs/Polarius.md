@@ -1,6 +1,6 @@
 <div align="center"><br><img width="128" height="128" alt="Polarius_overview" src="https://github.com/user-attachments/assets/59300c0b-6a79-4deb-a0c5-fa079b1552b6" /></div><br>
 
-[Polarius](https://brotherhood42.github.io)는 공동 목표에 대한 기여증명 화폐 발행구조와 기여량 기반의 참정구조가 결합된 매트릭스 통신 클라이언트입니다. 이것으로 우리는 공동체의 원동력을 재생하고 국경없는 상호부조적 사회를 건설하여 기존 국가 시스템의 한계를 극복할 수 있습니다.
+[Polarius](https://brotherhood42.github.io)는 공동 목표에 대한 기여증명 화폐 발행구조와 기여량 기반의 참정구조가 결합된 매트릭스 통신 클라이언트입니다. 이것으로 우리는 공동체의 원동력을 재생하고 국경없는 상호부조적 사회를 도모하여 기존 국가 시스템의 한계를 극복할 수 있습니다.
 
 ## 기존의 국가 시스템
 
@@ -24,11 +24,13 @@ Polarius는 공동체에 대한 기여증명을 기반으로 화폐를 발행하
 
 누구나 Polarius 클라이언트상에서 공동의 목표를 가지는 자율조직을 구성할 수 있으며, 누구나 구성된 조직 내 통신룸에서의 공동 목표에 대한 기여증명 기능을 통하여 화폐를 발행받을 수 있습니다. 이로써 화폐는 기여주체에게 직접적으로 발행되어 구성원의 기여원동력이 보존되며, 공동체는 양성 피드백구조와 함께 지속성을 확보하게 됩니다.  
   
+  
 **로그인**  
 *클라이언트는 https://brotherhood42.github.io 에서 제공됩니다.
 <img width="1264" height="603" alt="1" src="https://github.com/user-attachments/assets/f92f475f-1784-4bb5-a236-d4c2fc4250d5" />
 <img width="1262" height="605" alt="2" src="https://github.com/user-attachments/assets/8bb2332f-744e-4b36-a43c-20d701ad34da" />
 <img width="1267" height="617" alt="3" src="https://github.com/user-attachments/assets/40f27a74-7f9b-4521-9a45-3935030cac23" />  
+  
   
 **DAO 생성**  
 *DAO생성시 DAO space 하위에 ledger room 및 GOV space, DCA space가 자동생성됩니다. 이 세가지 요소는 DAO의 필수 기능을 수행합니다. 
@@ -36,11 +38,13 @@ Polarius는 공동체에 대한 기여증명을 기반으로 화폐를 발행하
 <img width="1265" height="621" alt="5" src="https://github.com/user-attachments/assets/6abedb3b-276b-4999-832f-e1d268007247" />
 <img width="1269" height="626" alt="6" src="https://github.com/user-attachments/assets/18467051-51ee-4c31-927d-ebac9735295d" />  
   
+  
 **DAO Wallet 생성**  
 *Wallet생성시 표시되는 니모닉 문구를 저장하세요. 니모닉 문구가 없으면 지갑을 복구할 수 없습니다.
 <img width="1258" height="621" alt="7" src="https://github.com/user-attachments/assets/67b56dca-f619-4468-8ed2-0addad9c9eb7" />
 <img width="1252" height="628" alt="8" src="https://github.com/user-attachments/assets/69429845-a819-49dd-8085-1180e6dddd32" />
 <img width="1254" height="622" alt="9" src="https://github.com/user-attachments/assets/31c5505b-c23a-4efa-9c1e-3a87ca66063a" />  
+  
   
 **DCA room 생성**
 <img width="1256" height="617" alt="10" src="https://github.com/user-attachments/assets/68f47c7e-6c3b-48e3-b3cd-9d04c6b6fe2b" />
@@ -48,21 +52,33 @@ Polarius는 공동체에 대한 기여증명을 기반으로 화폐를 발행하
 <img width="1261" height="616" alt="12" src="https://github.com/user-attachments/assets/6d83ea3c-b897-4960-9ca7-d7d80c8a7736" />
 <img width="1246" height="609" alt="13" src="https://github.com/user-attachments/assets/0b7abd93-3e78-47f4-90e4-a273903bfdbf" />  
   
+  
 **기여증명 (검증자 시점)**  
-*사용자가 기여증명을 포함한 DAO시스템을 원활하게 이용하기 위해서는 ledger room 및 GOV spacce, DCA space를 참가해야 합니다. 
+*기여증명을 포함한 DAO시스템을 원활하게 이용하기 위해서 기여자는 ledger room 및 GOV spacce, DCA space를 참가해야 합니다. 
 <img width="1248" height="602" alt="14" src="https://github.com/user-attachments/assets/9eb75c0a-3714-4d01-a104-eb31b2bbecdf" />
 <img width="1248" height="604" alt="15" src="https://github.com/user-attachments/assets/1005af08-35a7-4c77-88f5-cb8acf1a780a" />
 <img width="1248" height="606" alt="16" src="https://github.com/user-attachments/assets/414cbc05-3e0b-49c8-819f-d96ccd63f654" />
 <img width="1250" height="599" alt="17" src="https://github.com/user-attachments/assets/334b84c9-b038-481b-8b6c-88b721553561" />  
+  
   
 **검증권한 부여 (선택사항)**  
 *검증권한 레벨 설정은 DAO space 및 DCA room 'Settings' 내 Roles & Permissions 메뉴 하단 'Kudos'란에서 가능합니다. (기본값: 25)
 <img width="1256" height="611" alt="18" src="https://github.com/user-attachments/assets/aaf2a95e-ed5a-47d0-a29c-2f34b8f3d675" />
 <img width="1256" height="604" alt="19" src="https://github.com/user-attachments/assets/4062c89f-295e-478d-92d1-606bc463cdab" />  
   
+  
 ### 사용자 가이드: 기여량 기반 참정구조
 
 기여증명 발행구조에서의 화폐 보유량은 곧 기여량입니다. Polarius 클라이언트는 Snapshot governance, 즉 화폐 보유량에 대한 시점 고정형 참정기능을 지원하여 구성원의 기여참정권을 보장합니다. 이로써 모든 참여자는 권한에 대한 평등을 보장받으며, "공동체 기여자가 곧 공동체 의사결정 참여자"라는 합리적인 사회계약을 구현합니다.
+  
+  
+**안건 생성 조건설정**  
+*관리자는 GOV space 설정의 GOV Settings메뉴에서 'Required B Token Amount'를 설정하여 안건생성에 대한 보유량 조건을 설정할 수 있습니다.
+<img width="1257" height="619" alt="20" src="https://github.com/user-attachments/assets/dd2f6167-ff69-4e84-b20c-0454be5d38ca" />  
+  
+  
+*GOV space에서의 룸 생성 권한(Manage rooms in this space) 레벨의 기본값은 25이며, 0(Default)으로 바꾸지 않으면 Default권한의 일반 기여자는 'Required B Token Amount'를 충족해도 안건을 생성할 수 없습니다. 이를 유지하여 권한자만 안건생성에 접근토록 할 수 있지만, 0(Default)으로 바꾸어 순수히 기여에 대한 안건생성을 가능하게 할 수도 있습니다.
+<img width="1237" height="612" alt="image" src="https://github.com/user-attachments/assets/cfe481f7-ba1b-4ccf-ba6c-ec197d641b14" />
+<img width="1246" height="615" alt="22" src="https://github.com/user-attachments/assets/0056db23-d9e3-430d-87b1-6b4b51c6bf97" />
 
-**안건생성에 대한 보유량조건 설정**
-*DAO 관리자는 
+**안건 생성** 
