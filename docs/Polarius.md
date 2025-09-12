@@ -1,4 +1,4 @@
-<div align="center"><br><img width="128" height="128" alt="Polarius_overview" src="https://github.com/user-attachments/assets/8b02a008-f03d-4116-9082-c4be69178fb4" /></div><br>
+<div align="center"><br><img width="128" height="128" alt="Polarius_overview" src="https://github.com/user-attachments/assets/59300c0b-6a79-4deb-a0c5-fa079b1552b6" /></div><br>
 
 [Polarius](https://brotherhood42.github.io)는 공동 목표에 대한 기여증명 화폐 발행구조와 기여량 기반의 참정구조가 결합된 매트릭스 통신 클라이언트입니다. 이것으로 우리는 공동체의 원동력을 재생하고 국경없는 상호부조적 사회를 건설하여 기존 국가 시스템의 한계를 극복할 수 있습니다.
 
