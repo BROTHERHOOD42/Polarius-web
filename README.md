@@ -1,4 +1,4 @@
-<div align="center"><br><img width="847" height="135" alt="image" src="https://github.com/user-attachments/assets/90db8ca8-4ca5-4ef8-9415-5e16d798bc45" /></div><br>
+<div align="center"><br><img width="847" height="135" alt="Polarius" src="https://github.com/user-attachments/assets/ef921412-dd14-411e-a64f-b50d66e289fd" /></div><br>
 
 ## README
 
@@ -6,7 +6,7 @@
   
 ### Summary
 
-A Matrix client combining a Proof-of-Contribution token system for shared goals with contribution-weighted governance, adapted from [Element](https://github.com/element-hq/element-web). Detailed descriptions can be found in the [Polarius Overview.](https://github.com/BROTHERHOOD42/Polarius-web/blob/main/docs/Polarius.md)
+A Matrix client combining a Proof-of-Contribution token system for shared goals with contribution-weighted governance, adapted from [Element](https://github.com/element-hq/element-web). Detailed descriptions can be found in the [Polarius.md](https://github.com/BROTHERHOOD42/Polarius-web/blob/main/docs/Polarius.md)
 
 ## Getting Started
 
@@ -37,11 +37,13 @@ Anyone can contribute the code to the Polarius-web and receive BROTHERHOOD curre
    *How to make a BROTHERHOOD DAO wallet in Polarius client:  
    After launching Polarius and logging in, search for #brotherhood42:matrix.org in the client’s search bar and join the room.  
    Once inside the DAO Space, click "Create New Wallet" on the DAO Wallet card.  
-   Make sure to securely save your mnemonic phrase and public key (wallet address).
+   Make sure to securely save your mnemonic phrase and public key (wallet address).  
+  
+   *To use the DAO system smoothly, you must also join the Ledger Room of the DAO Space and its subspaces, GOV Space and DCA Space.
 
-3. Review and Merge
+4. Review and Merge
 
-4. Proof of Contribution in 'Polarius Development' room
+5. Proof of Contribution in 'Polarius Development' room
 
    *This room is in the DCA space of the BROTHERHOOD space.  
    In this room, you can share your pull request (PR) link along with a brief request comment.  
