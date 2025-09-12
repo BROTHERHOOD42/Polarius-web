@@ -1,6 +1,8 @@
+<div align="center"><br><img width="128" height="128" alt="Polarius_overview" src="https://github.com/user-attachments/assets/8b02a008-f03d-4116-9082-c4be69178fb4" /></div><br>
+
 ## 개요
 
-[Polarius](https://brotherhood42.github.io)는 공동 목표에 대한 기여증명 화폐 발행구조와 기여량 기반의 참정구조가 결합된 매트릭스 통신 클라이언트입니다. 이것으로 우리는 공동체의 원동력을 활성화시키고 국경없는 상호부조적 세계사회를 건설하여 기존 국가 시스템의 한계를 극복할 수 있습니다.
+[Polarius](https://brotherhood42.github.io)는 공동 목표에 대한 기여증명 화폐 발행구조와 기여량 기반의 참정구조가 결합된 매트릭스 통신 클라이언트입니다. 이것으로 우리는 공동체의 원동력을 재생하고 국경없는 상호부조적 세계사회를 건설하여 기존 국가 시스템의 한계를 극복할 수 있습니다.
 
 ## 기존의 국가 시스템
 
@@ -16,7 +18,7 @@
 
 ## Polarius, 새로운 시스템
 
-Polarius는 공동체에 대한 기여증명을 기반으로 화폐를 발행하여 구성원의 기여분배권을 보장합니다. 이러한 발행구조에서 화폐 보유량은 곧 기여의 정량적 수치이므로 보유량 기반의 시점 고정형 거버넌스를 구현하여 기여참정권을 보장합니다.
+Polarius는 공동체에 대한 기여증명을 기반으로 화폐를 발행하여 구성원의 기여분배권을 보장합니다. 이러한 발행구조에서의 화폐 보유량은 곧 정량화된 기여량이며, 보유량에 대한 시점 고정형 거버넌스를 구현하여 기여참정권을 보장합니다.
 
 <div align="center"><br><img width="1157" height="654" alt="Polarius drawio" src="https://github.com/user-attachments/assets/9ce7aec3-b29f-4820-b304-1e3a7c1eeb1c" /></div><br>
 
@@ -45,7 +47,8 @@ Polarius는 공동체에 대한 기여증명을 기반으로 화폐를 발행하
 <img width="1261" height="616" alt="12" src="https://github.com/user-attachments/assets/6d83ea3c-b897-4960-9ca7-d7d80c8a7736" />
 <img width="1246" height="609" alt="13" src="https://github.com/user-attachments/assets/0b7abd93-3e78-47f4-90e4-a273903bfdbf" />  
   
-**기여증명 (검증자 시점)**
+**기여증명 (검증자 시점)**  
+*기여증명을 포함한 DAO시스템을 원활하게 이용하기 위해서는 ledger room 및 GOV spacce, DCA space를 참가해야 합니다. 
 <img width="1248" height="602" alt="14" src="https://github.com/user-attachments/assets/9eb75c0a-3714-4d01-a104-eb31b2bbecdf" />
 <img width="1248" height="604" alt="15" src="https://github.com/user-attachments/assets/1005af08-35a7-4c77-88f5-cb8acf1a780a" />
 <img width="1248" height="606" alt="16" src="https://github.com/user-attachments/assets/414cbc05-3e0b-49c8-819f-d96ccd63f654" />
