@@ -6,7 +6,7 @@
   
 ### Summary
 
-A Matrix client combining a Proof-of-Contribution token system for shared goals with contribution-weighted governance, adapted from [Element](https://github.com/element-hq/element-web). Detailed descriptions can be found in the [Polarius Overview.](https://github.com/BROTHERHOOD42/Polarius-web/blob/main/docs/Polarius.md)
+A Matrix client combining a Proof-of-Contribution token system for shared goals with contribution-weighted governance, adapted from [Element](https://github.com/element-hq/element-web). Detailed descriptions can be found in the [Polarius.md](https://github.com/BROTHERHOOD42/Polarius-web/blob/main/docs/Polarius.md)
 
 ## Getting Started
 
