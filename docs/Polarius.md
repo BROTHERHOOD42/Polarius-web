@@ -1,6 +1,6 @@
 <div align="center"><br><img width="128" height="128" alt="Polarius_overview" src="https://github.com/user-attachments/assets/59300c0b-6a79-4deb-a0c5-fa079b1552b6" /></div><br>
 
-[Polarius](https://brotherhood42.github.io)는 공동 목표에 대한 기여증명 화폐 발행구조와 기여량 기반의 참정구조가 결합된 매트릭스 통신 클라이언트입니다. 이것으로 우리는 공동체의 원동력을 재생하고 국경없는 상호부조적 사회를 도모하여 기존 국가 시스템의 한계를 극복할 수 있습니다.
+[Polarius](https://brotherhood42.github.io)는 공동 목표에 대한 기여증명 화폐 발행구조와 기여량 기반의 참정구조가 결합된 매트릭스 통신 클라이언트입니다. 이것으로 우리는 공동체의 원동력을 재생하여 국경없는 상호부조적 사회를 도모함과 더불어 기존 국가 시스템의 한계를 극복할 수 있습니다.
 
 ## 기존의 국가 시스템
 
@@ -54,7 +54,8 @@ Polarius는 공동체에 대한 기여증명을 기반으로 화폐를 발행하
   
   
 **기여증명 (검증자 시점)**  
-*기여증명을 포함한 DAO시스템을 원활하게 이용하기 위해서 기여자는 ledger room 및 GOV spacce, DCA space를 참가해야 합니다. 
+*기여증명 및 지갑복구를 포함한 DAO시스템을 원활하게 이용하기 위해서 기여자는 ledger room 및 GOV spacce, DCA space를 참가해야 합니다.  
+*기여증명은 공개키를 매개로한 Kudos권한자의 검증으로 이루어지며, 검증시 기여자에게 Kudos Value만큼의 화폐가 지급됨과 동시에 트랜잭션이 ledger room(원장)에서 자동 생성 및 기록됩니다.  
 <img width="1248" height="602" alt="14" src="https://github.com/user-attachments/assets/9eb75c0a-3714-4d01-a104-eb31b2bbecdf" />
 <img width="1248" height="604" alt="15" src="https://github.com/user-attachments/assets/1005af08-35a7-4c77-88f5-cb8acf1a780a" />
 <img width="1248" height="606" alt="16" src="https://github.com/user-attachments/assets/414cbc05-3e0b-49c8-819f-d96ccd63f654" />
@@ -81,4 +82,44 @@ Polarius는 공동체에 대한 기여증명을 기반으로 화폐를 발행하
 <img width="1237" height="612" alt="image" src="https://github.com/user-attachments/assets/cfe481f7-ba1b-4ccf-ba6c-ec197d641b14" />
 <img width="1246" height="615" alt="22" src="https://github.com/user-attachments/assets/0056db23-d9e3-430d-87b1-6b4b51c6bf97" />
 
-**안건 생성** 
+**안건 생성**  
+*기여자는 해당 DAO의 보유량 조건을 충족하면 안건을 생성할 수 있습니다.  
+<img width="1256" height="663" alt="23" src="https://github.com/user-attachments/assets/539f9d20-c1a0-41c1-bf48-d716f1900fd9" />
+<img width="1260" height="663" alt="24" src="https://github.com/user-attachments/assets/be4aa4bb-4b92-4283-940a-ae0d069b77ac" />
+<img width="1232" height="648" alt="25" src="https://github.com/user-attachments/assets/4eae6242-aa3f-4cd3-b10a-1d0204cf4edd" />
+<img width="1265" height="671" alt="26" src="https://github.com/user-attachments/assets/5248ecd3-0a23-420c-ab6b-2e5785fda1a0" />
+<img width="1268" height="670" alt="27" src="https://github.com/user-attachments/assets/b803e645-422e-4851-b27f-5d5b65db7da1" />
+<img width="1267" height="666" alt="28" src="https://github.com/user-attachments/assets/acb4f2a1-1a37-4652-b392-a35a63590275" />
+<img width="1267" height="671" alt="29" src="https://github.com/user-attachments/assets/12a4f748-e021-487f-8ced-afd63fdabc18" />
+
+**생성된 안건 확인**  
+*안건 생성 양식에 기입한 제목 및 설명, 투표는 안건 생성과 동시에 하나의 제안묶음으로 자동 생성됩니다. 이를 고정하세요.  
+*생성자 본인 또한 생성 시점의 보유량에 따른 Voting Power를 행사하여 투표할 수 있습니다.
+<img width="1255" height="668" alt="30" src="https://github.com/user-attachments/assets/756a0760-0cf9-4504-97cd-3fba1160c191" />
+<img width="1256" height="660" alt="31" src="https://github.com/user-attachments/assets/697d7b6c-ca24-4e07-82e7-4b7d5abee384" />
+
+**투표 종료 확인**  
+*투표 종료시 종료결과가 전송되며, Proposal목록 룸카드의 진행중 표시가 체크 표시로 변경됩니다.
+<img width="1256" height="660" alt="32" src="https://github.com/user-attachments/assets/a7251bd6-16d6-47c1-844f-6c5a7131af94" />
+  
+*Voting Power에 따른 투표는 영향력 행사의 개념이며, 보유량 차감의 개념이 아닙니다.
+<img width="1265" height="667" alt="33" src="https://github.com/user-attachments/assets/aba60cac-1387-4eaa-b2e7-f406d6d1c3f3" />
+<img width="1268" height="667" alt="34" src="https://github.com/user-attachments/assets/40074b1a-c196-41db-a2d4-0d07d977a1f0" />
+
+**지갑 기능**
+<img width="1258" height="667" alt="35" src="https://github.com/user-attachments/assets/51dcec28-e015-4563-ba19-acf65a0c6e8e" />
+<img width="1258" height="665" alt="36" src="https://github.com/user-attachments/assets/181209f2-ec45-4d2a-a26a-5969e56b8247" />
+<img width="1263" height="660" alt="37" src="https://github.com/user-attachments/assets/864de567-c9a2-4775-bdf3-32ad25fdbcf4" />
+
+
+
+
+
+
+
+
+
+
+
+
+
