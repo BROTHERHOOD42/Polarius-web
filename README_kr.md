@@ -2,7 +2,7 @@
 
 ### 요약  
 
-공동의 목표에 대한 기여증명 화폐 발행구조와 기여량 기반의 참정구조가 결합된 매트릭스 클라이언트로, Element를 기반으로 제작되었습니다. 자세한 설명은 [Polarius_kr.md](https://github.com/BROTHERHOOD42/Polarius-web/blob/main/docs/Polarius_kr.md)문서에서 확인할 수 있습니다.  
+공동의 목표에 대한 기여기반의 토큰 지급구조와 기여량 기반의 참정구조가 결합된 매트릭스 통신 클라이언트로, Element를 기반으로 제작되었습니다. 자세한 설명은 [Polarius_kr.md](https://github.com/BROTHERHOOD42/Polarius-web/blob/main/docs/Polarius_kr.md)문서에서 확인할 수 있습니다.  
 
 ## 시작하기  
 
@@ -19,7 +19,7 @@ Polarius 사용자는 https://brotherhood42.github.io 에 접속하여 바로 �
 
 ## 기여하기  
 
-누구나 Polarius-web 코드에 기여할 수 있으며, 기여도 증명(Proof of Contribution)을 통해 BROTHERHOOD 화폐를 받을 수 있습니다.  
+누구나 Polarius-web 코드에 기여할 수 있으며, 클라이언트상 DAO의 기여증명을 통해 BROTHERHOOD 토큰을 지급 받을 수 있습니다.  
 
 ### 기여 절차  
 
@@ -54,7 +54,7 @@ Polarius 사용자는 https://brotherhood42.github.io 에 접속하여 바로 �
 
    **BROTHERHOOD (B)** 는 기여도를 기반으로 발행되는 새로운 형태의 화폐입니다.  
    이는 사용자 간의 교환 및 거래에 자유롭게 사용할 수 있습니다.  
-   또한 GOV Space에서 제안이 생성될 때, 스냅샷 과정에서 본인의 BROTHERHOOD (B) 잔고가 참조되며 DAO 거버넌스 참여가 가능합니다.  
+   또한 GOV Space에서 제안이 생성될 때, 스냅샷 과정에서 본인의 BROTHERHOOD(B)토큰의 잔고가 참조되며 DAO 거버넌스 참여가 가능합니다.  
 
 ## 워크플로우  
 
