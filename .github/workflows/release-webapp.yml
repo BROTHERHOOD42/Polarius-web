@@ -1,0 +1,96 @@
+name: Release Webapp
+on:
+    release:
+        types: [published]
+        tags:
+            - 'v*'
+    workflow_dispatch:
+        inputs:
+            tag:
+                description: 'Release tag (e.g., v1.0.0)'
+                required: true
+                type: string
+
+concurrency: ${{ github.workflow }}-${{ github.ref }}
+permissions:
+    contents: read
+    actions: write
+
+jobs:
+    build-webapp:
+        name: Build and Upload Webapp
+        runs-on: ubuntu-24.04
+        outputs:
+            webapp-version: ${{ steps.version.outputs.version }}
+            webapp-artifact: ${{ steps.upload.outputs.artifact-name }}
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v4
+
+            - name: Setup Node.js
+              uses: actions/setup-node@v4
+              with:
+                  node-version: 'lts/*'
+                  cache: 'yarn'
+
+            - name: Install dependencies
+              run: yarn install --frozen-lockfile
+
+            - name: Build webapp
+              run: yarn build
+
+            - name: Get version
+              id: version
+              run: |
+                  if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+                      VERSION="${{ inputs.tag }}"
+                  else
+                      VERSION="${{ github.event.release.tag_name }}"
+                  fi
+                  echo "version=$VERSION" >> $GITHUB_OUTPUT
+                  echo "Building webapp for version: $VERSION"
+
+            - name: Create webapp artifact
+              id: upload
+              uses: actions/upload-artifact@v4
+              with:
+                  name: webapp-${{ steps.version.outputs.version }}
+                  path: webapp/
+                  retention-days: 30
+
+            - name: Create webapp.asar
+              run: |
+                  # Install asar if not available
+                  npm install -g asar
+                  # Create webapp.asar
+                  asar pack webapp/ webapp.asar
+                  echo "webapp.asar created successfully"
+
+            - name: Upload webapp artifacts
+              uses: actions/upload-artifact@v4
+              with:
+                  name: webapp-asar-${{ steps.version.outputs.version }}
+                  path: |
+                      webapp/
+                      webapp.asar
+                  retention-days: 30
+
+    trigger-desktop-build:
+        name: Trigger Desktop Build
+        needs: build-webapp
+        runs-on: ubuntu-24.04
+        steps:
+            - name: Trigger Desktop Build
+              uses: benc-uk/workflow-dispatch@v1
+              with:
+                  workflow: build-desktop.yml
+                  repo: BROTHERHOOD42/Polarius-desktop
+                  ref: main
+                  token: ${{ secrets.DESKTOP_TRIGGER_TOKEN }}
+                  inputs: |
+                      {
+                        "webapp-version": "${{ github.ref_name }}",
+                        "webapp-artifact": "webapp-asar-${{ github.ref_name }}",
+                        "release-notes": "${{ github.event.release.body || 'Automated release from Polarius-web' }}",
+                        "release-title": "${{ github.event.release.name || 'Polarius Desktop' }}"
+                      }
