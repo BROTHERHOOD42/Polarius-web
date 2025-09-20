@@ -363,7 +363,7 @@ const SpaceCreateMenu: React.FC<{
     const cli = useMatrixClientContext();
     const [visibility, setVisibility] = useState<Visibility | null>(null);
     const [busy, setBusy] = useState<boolean>(false);
-    const [isSpaceMode, setIsSpaceMode] = useState<boolean>(false);
+    const [isSpaceMode, setIsSpaceMode] = useState<boolean>(true);
 
     const [name, setName] = useState("");
     const spaceNameField = useRef<Field>(null);
@@ -456,6 +456,15 @@ const SpaceCreateMenu: React.FC<{
                     <p>Spaces are collections of rooms and people. What kind of space do you want to create? You can change this later.</p>
 
                     <SpaceCreateMenuType
+                        title="Create a DAO"
+                        description="Create a DAO with GOV and DCA spaces"
+                        className="mx_SpaceCreateMenuType_dao"
+                        onClick={() => {
+                            setIsSpaceMode(false);
+                            setVisibility(null);
+                        }}
+                    />
+                    <SpaceCreateMenuType
                         title={_t("common|public")}
                         description="Open space for anyone, best for communities"
                         className="mx_SpaceCreateMenuType_public"
@@ -466,15 +475,6 @@ const SpaceCreateMenu: React.FC<{
                         description="Invite only, best for yourself or teams"
                         className="mx_SpaceCreateMenuType_private"
                         onClick={() => setVisibility(Visibility.Private)}
-                    />
-                    <SpaceCreateMenuType
-                        title="Create a DAO"
-                        description="Create a DAO with GOV and DCA spaces"
-                        className="mx_SpaceCreateMenuType_dao"
-                        onClick={() => {
-                            setIsSpaceMode(false);
-                            setVisibility(null);
-                        }}
                     />
 
                     <AccessibleButton kind="primary_outline" onClick={onSearchClick}>
@@ -489,6 +489,15 @@ const SpaceCreateMenu: React.FC<{
                     <p>DAOs are autonomous organizations with shared goals. What kind of DAO do you want to create? You can change this later.</p>
 
                     <SpaceCreateMenuType
+                        title="Create a space"
+                        description="Create just an empty space, not a DAO"
+                        className="mx_SpaceCreateMenuType_space"
+                        onClick={() => {
+                            setIsSpaceMode(true);
+                            setVisibility(null);
+                        }}
+                    />
+                    <SpaceCreateMenuType
                         title={_t("common|public")}
                         description="Open DAO for anyone, best for communities"
                         className="mx_SpaceCreateMenuType_public"
@@ -499,15 +508,6 @@ const SpaceCreateMenu: React.FC<{
                         description="Invite only, best for yourself or teams"
                         className="mx_SpaceCreateMenuType_private"
                         onClick={() => setVisibility(Visibility.Private)}
-                    />
-                    <SpaceCreateMenuType
-                        title="Create a space"
-                        description="Create just an empty space, not a DAO"
-                        className="mx_SpaceCreateMenuType_space"
-                        onClick={() => {
-                            setIsSpaceMode(true);
-                            setVisibility(null);
-                        }}
                     />
 
                     <AccessibleButton kind="primary_outline" onClick={onSearchClick}>
