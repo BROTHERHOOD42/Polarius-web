@@ -129,7 +129,6 @@ module.exports = (env, argv) => {
 
         entry: {
             bundle: "./src/vector/index.ts",
-            mobileguide: "./src/vector/mobile_guide/index.ts",
             jitsi: "./src/vector/jitsi/index.ts",
             usercontent: "./src/usercontent/index.ts",
             serviceworker: {
@@ -606,7 +605,7 @@ module.exports = (env, argv) => {
                 // HtmlWebpackPlugin will screw up our formatting like the names
                 // of the themes and which chunks we actually care about.
                 inject: false,
-                excludeChunks: ["mobileguide", "usercontent", "jitsi", "serviceworker"],
+                excludeChunks: ["usercontent", "jitsi", "serviceworker"],
                 minify: false,
                 templateParameters: {
                     og_image_url: ogImageUrl,
@@ -627,7 +626,7 @@ module.exports = (env, argv) => {
                 template: "./src/vector/mobile_guide/index.html",
                 filename: "mobile_guide/index.html",
                 minify: false,
-                chunks: ["mobileguide"],
+                chunks: [],
             }),
 
             // These are the static error pages for when the javascript env is *really unsupported*
@@ -694,6 +693,12 @@ module.exports = (env, argv) => {
                     // Mobile guide assets
                     {
                         from: "assets/**",
+                        context: path.resolve(__dirname, "src/vector/mobile_guide"),
+                        to: "mobile_guide",
+                    },
+                    // Mobile guide CSS
+                    {
+                        from: "index.css",
                         context: path.resolve(__dirname, "src/vector/mobile_guide"),
                         to: "mobile_guide",
                     },
