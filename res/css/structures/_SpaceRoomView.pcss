@@ -1,0 +1,486 @@
+/*
+Copyright 2024 New Vector Ltd.
+Copyright 2021 The Matrix.org Foundation C.I.C.
+
+SPDX-License-Identifier: AGPL-3.0-only OR GPL-3.0-only OR LicenseRef-Element-Commercial
+Please see LICENSE files in the repository root for full details.
+*/
+
+@define-mixin SpacePillButton {
+    position: relative;
+    padding: 16px 32px 16px 72px;
+    width: 432px;
+    box-sizing: border-box;
+    border-radius: 8px;
+    border: 1px solid $input-border-color;
+    font-size: $font-17px;
+    font-weight: var(--cpd-font-weight-semibold);
+    margin: 20px 0;
+
+    > div {
+        margin-top: 4px;
+        font-weight: normal;
+        font-size: $font-15px;
+        color: $secondary-content;
+    }
+
+    &::before {
+        position: absolute;
+        content: "";
+        width: 28px;
+        height: 28px;
+        top: 50%;
+        transform: translateY(-50%);
+        left: 22px;
+        mask-position: center;
+        mask-repeat: no-repeat;
+        mask-size: 28px;
+        background-color: $tertiary-content;
+    }
+
+    &:hover {
+        border-color: var(--cpd-color-bg-action-primary-rest);
+
+        &::before {
+            background-color: var(--cpd-color-icon-primary);
+        }
+
+        > span {
+            color: $primary-content;
+        }
+    }
+}
+
+.mx_SpaceRoomView {
+    --innerWidth: 428px;
+
+    overflow-y: auto;
+    flex: 1;
+
+    .mx_MainSplit > div:first-child {
+        padding: 80px 60px;
+        flex-grow: 1;
+        max-height: 100%;
+        overflow-y: auto;
+
+        h1 {
+            margin: 0;
+            font-size: $font-24px;
+            font-weight: var(--cpd-font-weight-semibold);
+            color: $primary-content;
+            width: max-content;
+        }
+
+        .mx_SpaceRoomView_description {
+            font-size: $font-15px;
+            color: $secondary-content;
+            margin-top: 12px;
+            margin-bottom: 24px;
+            max-width: var(--innerWidth);
+        }
+
+        .mx_AddExistingToSpace {
+            max-width: var(--innerWidth);
+
+            .mx_AddExistingToSpace_content {
+                height: calc(100vh - 360px);
+                max-height: 400px;
+            }
+        }
+
+        .mx_SpaceRoomView_buttons {
+            display: block;
+            margin-top: 44px;
+            width: var(--innerWidth);
+            text-align: right; /* button alignment right */
+
+            .mx_AccessibleButton_hasKind {
+                padding: 8px 22px;
+                margin-left: 16px;
+            }
+
+            input.mx_AccessibleButton {
+                border: none; /* override default styles */
+            }
+        }
+
+        .mx_Field {
+            max-width: var(--innerWidth);
+
+            & + .mx_Field {
+                margin-top: 28px;
+            }
+        }
+
+        .mx_SpaceRoomView_errorText {
+            font-weight: var(--cpd-font-weight-semibold);
+            font-size: $font-12px;
+            line-height: $font-15px;
+            color: $alert;
+            margin-bottom: 28px;
+        }
+
+        .mx_AccessibleButton_disabled {
+            cursor: not-allowed;
+        }
+    }
+
+    .mx_SpaceRoomView_landing {
+        display: flex;
+        flex-direction: column;
+        min-width: 0;
+
+        .mx_SpaceRoomView_landing_header {
+            display: flex;
+            justify-content: space-between;
+
+            .mx_BaseAvatar {
+                width: 80px;
+            }
+        }
+
+        .mx_SpaceRoomView_landing_name {
+            margin: 24px 0 16px;
+            font-size: $font-15px;
+            color: $secondary-content;
+
+            > span {
+                display: flex;
+                flex-flow: column;
+                gap: 12px 0;
+
+                h1 {
+                    display: inline-block;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                    width: 100%;
+                }
+            }
+
+            .mx_SpaceRoomView_landing_inviter {
+                .mx_BaseAvatar {
+                    margin-right: 4px;
+                    vertical-align: middle;
+                }
+            }
+        }
+
+        .mx_SpaceRoomView_landing_infoBar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            flex-wrap: wrap;
+            line-height: $font-24px;
+
+            .mx_SpaceRoomView_landing_infoBar_interactive {
+                display: flex;
+                flex-wrap: wrap;
+                align-items: center;
+                gap: 12px 12px;
+
+                .mx_FacePile {
+                    display: inline-block;
+                    cursor: pointer;
+                }
+
+                .mx_SpaceRoomView_landing_inviteButton,
+                .mx_SpaceRoomView_landing_settingsButton {
+                    position: relative;
+
+                    &::before {
+                        position: absolute;
+                        content: "";
+                        mask-position: center;
+                        mask-repeat: no-repeat;
+                    }
+                }
+
+                .mx_SpaceRoomView_landing_inviteButton {
+                    padding: 4px 18px 4px 40px;
+                    height: min-content;
+
+                    &::before {
+                        left: 8px;
+                        height: 16px;
+                        width: 16px;
+                        background: var(--cpd-color-icon-on-solid-primary);
+                        mask-size: 16px;
+                        mask-image: url("$(res)/img/element-icons/room/invite.svg");
+                    }
+                }
+
+                .mx_SpaceRoomView_landing_settingsButton {
+                    width: 24px;
+                    height: 24px;
+
+                    &::before {
+                        left: 0;
+                        top: 0;
+                        height: 24px;
+                        width: 24px;
+                        background: $tertiary-content;
+                        mask-size: contain;
+                        mask-image: url("@vector-im/compound-design-tokens/icons/settings-solid.svg");
+                    }
+                }
+            }
+        }
+
+        .mx_SpaceRoomView_landing_address {
+            font-size: $font-13px;
+            color: $secondary-content;
+            margin-top: 4px;
+            font-family: monospace;
+            opacity: 0.7;
+        }
+
+        .mx_SpaceRoomView_landing_topic {
+            font-size: $font-15px;
+            margin-top: 12px;
+            margin-bottom: 16px;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+
+        .mx_SearchBox {
+            margin: 0 0 20px;
+            flex: 0;
+        }
+    }
+
+    .mx_SpaceRoomView_privateScope {
+        > .mx_AccessibleButton {
+            @mixin SpacePillButton;
+        }
+
+        .mx_SpaceRoomView_privateScope_justMeButton::before {
+            mask-image: url("@vector-im/compound-design-tokens/icons/user-profile-solid.svg");
+        }
+
+        .mx_SpaceRoomView_privateScope_meAndMyTeammatesButton::before {
+            mask-image: url("$(res)/img/element-icons/group-members.svg");
+        }
+    }
+
+    .mx_SpaceRoomView_inviteTeammates {
+        .mx_SpaceRoomView_inviteTeammates_buttons {
+            color: $secondary-content;
+            margin-top: 28px;
+
+            .mx_AccessibleButton {
+                position: relative;
+                display: inline-block;
+                padding-left: 32px;
+                line-height: 24px; /* to center icons */
+
+                &::before {
+                    content: "";
+                    position: absolute;
+                    height: 24px;
+                    width: 24px;
+                    top: 0;
+                    left: 0;
+                    background-color: $secondary-content;
+                    mask-repeat: no-repeat;
+                    mask-position: center;
+                    mask-size: contain;
+                }
+
+                & + .mx_AccessibleButton {
+                    margin-left: 32px;
+                }
+            }
+
+            .mx_SpaceRoomView_inviteTeammates_inviteDialogButton {
+                color: var(--cpd-color-text-primary);
+                font-weight: var(--cpd-font-weight-semibold);
+                text-decoration: underline;
+
+                &::before {
+                    mask-image: url("$(res)/img/element-icons/room/invite.svg");
+                    background-color: var(--cpd-color-icon-primary);
+                }
+            }
+        }
+    }
+}
+
+/* DAO Landing Page Styles */
+.mx_SpaceRoomView_landing_daoButtons {
+    display: flex;
+    gap: 12px;
+    margin: 16px 0 24px 0;
+    justify-content: flex-start;
+}
+
+.mx_SpaceRoomView_landing_daoButton {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 12px 16px;
+    border: 1px solid var(--cpd-color-border-interactive-secondary);
+    border-radius: 8px;
+    background: var(--cpd-color-bg-canvas-default);
+    transition: all 0.2s ease;
+    min-width: 120px;
+    text-align: center;
+
+    &:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        border-color: var(--cpd-color-border-interactive-primary);
+    }
+
+    &.mx_SpaceRoomView_landing_daoButton_gov {
+        border-color: var(--cpd-color-border-success-subtle);
+        
+        &:hover {
+            border-color: var(--cpd-color-border-success-primary);
+            background: var(--cpd-color-bg-success-subtle);
+        }
+        
+        .mx_SpaceRoomView_landing_daoButton_title {
+            color: var(--cpd-color-text-success-primary);
+        }
+    }
+
+    &.mx_SpaceRoomView_landing_daoButton_dca {
+        border-color: var(--cpd-color-border-info-subtle);
+        
+        &:hover {
+            border-color: var(--cpd-color-border-info-primary);
+            background: var(--cpd-color-bg-info-subtle);
+        }
+        
+        .mx_SpaceRoomView_landing_daoButton_title {
+            color: var(--cpd-color-text-info-primary);
+        }
+    }
+}
+
+.mx_SpaceRoomView_landing_daoButton_title {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.mx_SpaceRoomView_landing_daoButton_description {
+    font-size: 12px;
+    color: var(--cpd-color-text-secondary);
+    line-height: 1.3;
+}
+
+/* DAO Wallet Section Styles */
+.mx_DAOWalletSection {
+    margin: 16px 0 24px 0;
+    padding: 16px;
+    border: 1px solid var(--cpd-color-border-interactive-secondary);
+    border-radius: 8px;
+    background: var(--cpd-color-bg-canvas-default);
+}
+
+.mx_DAOWalletSection_header {
+    margin-bottom: 12px;
+    
+    h3 {
+        margin: 0;
+        font-size: 16px;
+        font-weight: 600;
+        color: var(--cpd-color-text-primary);
+    }
+    
+    p {
+        margin: 4px 0 0 0;
+        font-size: 14px;
+        color: var(--cpd-color-text-secondary);
+    }
+}
+
+.mx_DAOWalletSection_error {
+    padding: 8px 12px;
+    margin-bottom: 12px;
+    background: var(--cpd-color-bg-critical-subtle);
+    border: 1px solid var(--cpd-color-border-critical-subtle);
+    border-radius: 4px;
+    color: var(--cpd-color-text-critical-primary);
+    font-size: 14px;
+}
+
+.mx_DAOWalletSection_actions {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.mx_DAOWalletSection_createButton,
+.mx_DAOWalletSection_restoreButton {
+    padding: 8px 16px;
+    font-size: 14px;
+}
+
+.mx_DAOWalletSection_restore {
+    .mx_Field {
+        margin-bottom: 12px;
+    }
+}
+
+.mx_DAOWalletSection_restoreActions {
+    display: flex;
+    gap: 8px;
+    
+    .mx_AccessibleButton {
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+}
+
+.mx_DAOWalletSection_walletInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.mx_DAOWalletSection_address,
+.mx_DAOWalletSection_balance,
+.mx_DAOWalletSection_contribution {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 12px;
+    background: var(--cpd-color-bg-subtle-secondary);
+    border-radius: 4px;
+}
+
+.mx_DAOWalletSection_label {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--cpd-color-text-secondary);
+}
+
+.mx_DAOWalletSection_addressValue {
+    font-family: monospace;
+    font-size: 12px;
+    color: var(--cpd-color-text-primary);
+    background: var(--cpd-color-bg-canvas-default);
+    padding: 4px 8px;
+    border-radius: 4px;
+    border: 1px solid var(--cpd-color-border-interactive-secondary);
+    max-width: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.mx_DAOWalletSection_balanceValue,
+.mx_DAOWalletSection_contributionValue {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--cpd-color-text-primary);
+}
+
+.mx_DAOWalletSection_exportButton,
+.mx_DAOWalletSection_deleteButton {
+    padding: 6px 12px;
+    font-size: 13px;
+}
